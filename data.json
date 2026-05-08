@@ -1,0 +1,49 @@
+[
+  {
+    "id": "idea-note",
+    "colorClass": "card-pink",
+    "image": "/assets/thumbnails/bg_sakefolio.png",
+    "thumbGradient": "thumb-gradient-1",
+    "thumbIcon": "/assets/thumbnails/icon_sakeforio.png",
+    "thumbLabel": "SAKEfolio",
+    "tag": "記録",
+    "title": "",
+    "description": "SAKEfolio（サケフォリオ）は、あなたの日本酒ライフを豊かにするための記録ツールです。飲んだ銘柄の感想や評価を記録し、あなただけの日本酒ポートフォリオを作成しましょう。",
+    "url": "https://sakefolio.creative-garden.com/"
+  },
+  {
+    "id": "palette-mixer",
+    "colorClass": "card-blue",
+    "image": "/assets/thumbnails/bg_bunbuku_fan.png",
+    "thumbGradient": "thumb-gradient-2",
+    "thumbIcon": "/assets/thumbnails/icon_bunbuku_fan.png",
+    "thumbLabel": "ファンサイト",
+    "tag": "WEB制作",
+    "title": "",
+    "description": "個人勢Vtuber分福ありさちゃんのファンサイト。<br>プロフィール、配信スケジュール、歌ってみた動画、アーカイブ情報を掲載中。<br>あなたに福のお裾分け！",
+    "url": "https://bunbuku-arisa.creative-garden.com"
+  },
+  {
+    "id": "copy-lab",
+    "colorClass": "card-yellow",
+    "image": "/assets/thumbnails/bg_stamp_splitter.png",
+    "thumbGradient": "thumb-gradient-3",
+    "thumbIcon": "/assets/thumbnails/icon_simple_stamp_splitter.png",
+    "thumbLabel": "画像分割ツール",
+    "tag": "支援",
+    "title": "",
+    "description": "1枚の画像内に整列したチャットアプリ用スタンプ画像を切り分けてダウンロードできるWebツールです。",
+    "url": "https://simple-stamp-splitter.creative-garden.com/"
+  },
+  {
+    "id": "schedule-stage",
+    "colorClass": "card-purple",
+    "thumbGradient": "thumb-gradient-4",
+    "thumbIcon": "📅",
+    "thumbLabel": "Schedule",
+    "tag": "予定管理",
+    "title": "Schedule Stage",
+    "description": "公開予定、制作タスク、イベント告知をステージ進行のように見やすく管理するWEBツールです。",
+    "url": "https://schedule.creative-garden.example"
+  }
+]

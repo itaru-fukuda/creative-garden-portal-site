@@ -1,178 +1,122 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="creative-garden のサブドメインで公開している便利なWEBツールをまとめた、明るくポップなポータルサイトです。"
-    />
-    <title>creative-garden Portal | つくる人のためのWEBツールガーデン</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Poppins:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="sparkle-field" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span>
-    </div>
 
-    <header class="site-header">
-      <a class="logo" href="#top" aria-label="creative-garden portal top">
-        <span class="logo-mark">✦</span>
-        <span>creative-garden</span>
-      </a>
-      <nav class="nav-links" aria-label="ページ内ナビゲーション">
-        <a href="#tools">WEBツール</a>
-        <a href="#about">このポータル</a>
-        <a href="#contact">更新リクエスト</a>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta id="site-desc" name="description" content="creative-garden のサブドメインで公開している便利なWEBツールをまとめた、明るくポップなポータルサイトです。" />
+  <title id="site-title">creative-garden Portal | つくる人のためのWEBツールガーデン</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Poppins:wght@600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-    <main id="top">
-      <section class="hero section-shell">
-        <div class="hero-copy">
-          <p class="eyebrow">CREATIVE-GARDEN PORTAL</p>
-          <h1>
-            ひらめきが咲く、
-            <span>ポップなWEBツールガーデン。</span>
-          </h1>
-          <p class="hero-text">
-            creative-garden ドメインで公開しているサブドメインサイトを、アイドルや
-            Vtuber のファンサイトのように明るく楽しく探せるポータルにまとめました。
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#tools">ツールを見に行く</a>
-            <a class="button secondary" href="#about">コンセプトを見る</a>
+<body>
+  <div class="sparkle-field" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <header class="site-header">
+    <a class="logo" href="#top" aria-label="creative-garden portal top">
+      <span class="logo-mark" id="logo-mark">✦</span>
+      <span id="logo-text">creative-garden</span>
+    </a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開閉する">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="nav-links" id="nav-links" aria-label="ページ内ナビゲーション">
+      <a href="#tools" id="nav-tools">WEBツール</a>
+      <a href="#about" id="nav-about">About</a>
+      <a href="#contact" id="nav-contact">Profile</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <p class="eyebrow" id="hero-eyebrow">CREATIVE-GARDEN PORTAL</p>
+        <h1 id="hero-headline">
+          ひらめきが咲く、
+          <span>ポップなWEBツールガーデン。</span>
+        </h1>
+        <p class="hero-text" id="hero-desc">
+          creative-garden ドメインで公開しているサブドメインサイトを、アイドルや
+          Vtuber のファンサイトのように明るく楽しく探せるポータルにまとめました。
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#tools" id="hero-btn-primary">ツールを見に行く</a>
+          <a class="button secondary" href="#about" id="hero-btn-secondary">コンセプトを見る</a>
+        </div>
+      </div>
+      <div class="hero-stage" aria-label="creative-garden の世界観を表すイラスト">
+        <div class="idol-card">
+          <div class="badge" id="hero-idol-badge">NEW!</div>
+          <div class="mascot-face">
+            <span class="eye left"></span>
+            <span class="eye right"></span>
+            <span class="smile"></span>
           </div>
+          <p id="hero-idol-text">Welcome to<br />Creative Garden</p>
         </div>
-        <div class="hero-stage" aria-label="creative-garden の世界観を表すイラスト">
-          <div class="idol-card">
-            <div class="badge">NEW!</div>
-            <div class="mascot-face">
-              <span class="eye left"></span>
-              <span class="eye right"></span>
-              <span class="smile"></span>
-            </div>
-            <p>Welcome to<br />Creative Garden</p>
-          </div>
-          <div class="floating-chip chip-pink">Fan Site Mood</div>
-          <div class="floating-chip chip-blue">Web Tools</div>
-          <div class="floating-chip chip-yellow">Pop & Bright</div>
-        </div>
-      </section>
+        <div class="floating-chip chip-pink" id="hero-chip-1">Fan Site Mood</div>
+        <div class="floating-chip chip-blue" id="hero-chip-2">Web Tools</div>
+        <div class="floating-chip chip-yellow" id="hero-chip-3">Pop & Bright</div>
+      </div>
+    </section>
 
-      <section id="tools" class="tools-section section-shell">
-        <div class="section-heading">
-          <p class="eyebrow">SUBDOMAIN LINEUP</p>
-          <h2>各WEBツールへの入口</h2>
-          <p>
-            サムネイル・紹介文・リンクをカードで整理。実際のサブドメインURLに差し替えるだけで、
-            そのままポータルとして使えます。
-          </p>
-        </div>
+    <section id="tools" class="tools-section section-shell">
+      <div class="section-heading">
+        <p class="eyebrow" id="tools-eyebrow">SUBDOMAIN LINEUP</p>
+        <h2 id="tools-headline">各WEBツールへの入口</h2>
+        <p id="tools-desc">
+          サムネイル・紹介文・リンクをカードで整理。実際のサブドメインURLに差し替えるだけで、
+          そのままポータルとして使えます。
+        </p>
+      </div>
 
-        <div class="tool-grid">
-          <article class="tool-card card-pink">
-            <div class="thumbnail thumb-gradient-1" role="img" aria-label="アイデアノートのサムネイル">
-              <span class="thumb-icon">💡</span>
-              <span class="thumb-label">Idea Note</span>
-            </div>
-            <div class="tool-body">
-              <span class="tag">企画・メモ</span>
-              <h3>Idea Note</h3>
-              <p>
-                ひらめきをすぐに書き留め、企画や創作メモをかわいく整理できるノート系WEBツールです。
-              </p>
-              <a class="card-link" href="https://idea.creative-garden.example" aria-label="Idea Note を開く">
-                サイトを開く <span>→</span>
-              </a>
-            </div>
-          </article>
+      <div class="tool-grid" id="tool-grid">
+      </div>
+    </section>
 
-          <article class="tool-card card-blue">
-            <div class="thumbnail thumb-gradient-2" role="img" aria-label="カラーパレットのサムネイル">
-              <span class="thumb-icon">🎨</span>
-              <span class="thumb-label">Palette</span>
-            </div>
-            <div class="tool-body">
-              <span class="tag">デザイン支援</span>
-              <h3>Palette Mixer</h3>
-              <p>
-                バナー、配信画面、LP制作に使いやすい配色を、ポップなムードで試せるカラーツールです。
-              </p>
-              <a class="card-link" href="https://palette.creative-garden.example" aria-label="Palette Mixer を開く">
-                サイトを開く <span>→</span>
-              </a>
-            </div>
-          </article>
+    <section id="about" class="about-section section-shell">
+      <div class="about-card">
+        <p class="eyebrow" id="about-eyebrow">PORTAL CONCEPT</p>
+        <h2 id="about-headline">企業サイトの信頼感 × 推し活サイトのワクワク感</h2>
+        <p id="about-desc">
+          角丸カード、鮮やかなグラデーション、キラキラした装飾を組み合わせ、
+          「便利そう」だけでなく「触ってみたい」と感じられる第一印象を目指しました。
+          ツールが増えてもカードを追加するだけで拡張できます。
+        </p>
+      </div>
+    </section>
 
-          <article class="tool-card card-yellow">
-            <div class="thumbnail thumb-gradient-3" role="img" aria-label="文章作成ツールのサムネイル">
-              <span class="thumb-icon">✍️</span>
-              <span class="thumb-label">Copy Lab</span>
-            </div>
-            <div class="tool-body">
-              <span class="tag">文章作成</span>
-              <h3>Copy Lab</h3>
-              <p>
-                告知文、紹介文、SNS投稿などのたたき台を作るための、クリエイター向け文章サポートツールです。
-              </p>
-              <a class="card-link" href="https://copy.creative-garden.example" aria-label="Copy Lab を開く">
-                サイトを開く <span>→</span>
-              </a>
-            </div>
-          </article>
-
-          <article class="tool-card card-purple">
-            <div class="thumbnail thumb-gradient-4" role="img" aria-label="スケジュール管理ツールのサムネイル">
-              <span class="thumb-icon">📅</span>
-              <span class="thumb-label">Schedule</span>
-            </div>
-            <div class="tool-body">
-              <span class="tag">予定管理</span>
-              <h3>Schedule Stage</h3>
-              <p>
-                公開予定、制作タスク、イベント告知をステージ進行のように見やすく管理するWEBツールです。
-              </p>
-              <a class="card-link" href="https://schedule.creative-garden.example" aria-label="Schedule Stage を開く">
-                サイトを開く <span>→</span>
-              </a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="about" class="about-section section-shell">
-        <div class="about-card">
-          <p class="eyebrow">PORTAL CONCEPT</p>
-          <h2>企業サイトの信頼感 × 推し活サイトのワクワク感</h2>
-          <p>
-            角丸カード、鮮やかなグラデーション、キラキラした装飾を組み合わせ、
-            「便利そう」だけでなく「触ってみたい」と感じられる第一印象を目指しました。
-            ツールが増えてもカードを追加するだけで拡張できます。
-          </p>
-        </div>
-      </section>
-
-      <section id="contact" class="contact-section section-shell">
+    <section id="contact" class="author-section section-shell">
+      <div class="author-header">
         <div>
-          <p class="eyebrow">KEEP GROWING</p>
-          <h2>新しいサブドメインも、ここに追加。</h2>
-          <p>
-            新規ツールを公開したら、リンク、紹介文、サムネイルを追加して creative-garden の入口を育てていきましょう。
-          </p>
+          <p class="eyebrow" id="contact-eyebrow"></p>
+          <h2 id="contact-headline"></h2>
         </div>
-        <a class="button primary" href="mailto:hello@creative-garden.example">掲載内容を相談する</a>
-      </section>
-    </main>
+        <div class="contact-links" id="contact-links"></div>
+      </div>
+      <div class="author-profile">
+        <img src="" alt="Profile" class="author-avatar" id="contact-avatar" />
+        <div class="author-info">
+          <h3 class="author-name" id="contact-name"></h3>
+          <p id="contact-desc" class="author-bio"></p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <footer class="site-footer">
-      <p>© creative-garden. All tools bloom here.</p>
-    </footer>
-  </body>
+  <footer class="site-footer">
+    <p id="footer-copy">© creative-garden. All tools bloom here.</p>
+  </footer>
+  <script type="module" src="/main.js"></script>
+</body>
+
 </html>
