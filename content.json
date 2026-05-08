@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "creative-garden Portal | つくる人のためのWEBツールガーデン",
-    "description": "creative-garden のサブドメインで公開している便利なWEBツールをまとめたポータルサイトです。",
+    "description": "creative-garden で公開しているWEBツール・サイトをまとめたポータルサイトです。",
     "logoMark": "✦",
     "logoText": "creative-garden"
   },
@@ -13,7 +13,7 @@
   "hero": {
     "eyebrow": "CREATIVE-GARDEN PORTAL",
     "headline": "ここは<br><span style='font-size: 0.9em;'>Creativeを<br>育てる小さな<br>Garden</span>",
-    "description": "creative-garden ドメインで公開しているサブドメインサイトを楽しく探せるポータルにまとめました。",
+    "description": "creative-garden で公開しているWEBツール・サイトをまとめたポータルサイトです。",
     "primaryButton": {
       "text": "ツールを見に行く",
       "url": "#tools"
@@ -38,7 +38,7 @@
   "aboutSection": {
     "eyebrow": "PORTAL CONCEPT",
     "headline": "好きなものを、好きなままに。",
-    "description": "Creative Garden は、創作と記録のための小さな庭です。<br>Webアプリ制作、AIを活用したものづくり、記事執筆、ファンサイト制作など、ジャンルに縛られず、その時々で夢中になっているものを形にして発信しています。"
+    "description": "creative-garden は、創作と記録のための小さな庭です。<br>Webアプリ制作、AIを活用したものづくり、記事執筆、ファンサイト制作など、ジャンルに縛られず、その時々で夢中になっているものを形にして発信しています。"
   },
   "contactSection": {
     "eyebrow": "AUTHOR",

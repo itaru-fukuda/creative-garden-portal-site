@@ -1,6 +1,7 @@
 [
   {
     "id": "idea-note",
+    "isVisible": true,
     "colorClass": "card-pink",
     "image": "/assets/thumbnails/bg_sakefolio_001.png",
     "thumbGradient": "thumb-gradient-1",
@@ -13,6 +14,7 @@
   },
   {
     "id": "palette-mixer",
+    "isVisible": true,
     "colorClass": "card-blue",
     "image": "/assets/thumbnails/bg_bunbuku_fan_001.png",
     "thumbGradient": "thumb-gradient-2",
@@ -25,6 +27,7 @@
   },
   {
     "id": "copy-lab",
+    "isVisible": true,
     "colorClass": "card-yellow",
     "image": "/assets/thumbnails/bg_stamp_splitter_001.png",
     "thumbGradient": "thumb-gradient-3",
@@ -37,6 +40,7 @@
   },
   {
     "id": "schedule-stage",
+    "isVisible": true,
     "colorClass": "card-purple",
     "thumbGradient": "thumb-gradient-4",
     "thumbIcon": "📅",

@@ -128,6 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render cards
   toolsData.forEach(tool => {
+    if (tool.isVisible === false) return;
+
     const article = document.createElement('a');
     article.href = tool.url || '#';
     article.className = `tool-card ${tool.colorClass}`;
