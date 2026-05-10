@@ -133,6 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const article = document.createElement('a');
     article.href = tool.url || '#';
     article.className = `tool-card ${tool.colorClass}`;
+    article.target = '_blank';
+    article.rel = 'noopener noreferrer';
     
     let thumbIconContent = tool.thumbIcon || '';
     if (tool.thumbIcon && tool.thumbIcon.match(/\.(png|jpe?g|gif|svg|webp)$/i)) {

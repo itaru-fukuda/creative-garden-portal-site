@@ -40,7 +40,7 @@
   },
   {
     "id": "schedule-stage",
-    "isVisible": true,
+    "isVisible": false,
     "colorClass": "card-purple",
     "thumbGradient": "thumb-gradient-4",
     "thumbIcon": "📅",
