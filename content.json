@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "creative-garden Portal | つくる人のためのWEBツールガーデン",
-    "description": "creative-garden で公開しているWEBツール・サイトをまとめたポータルサイトです。",
+    "title": "creative-garden (クリエイティブガーデン) Portal | つくる人のためのWEBツールガーデン",
+    "description": "creative-garden (クリエイティブガーデン) で公開しているWEBツール・サイトをまとめたポータルサイトです。",
     "logoMark": "✦",
     "logoText": "creative-garden"
   },
@@ -12,8 +12,8 @@
   },
   "hero": {
     "eyebrow": "CREATIVE-GARDEN PORTAL",
-    "headline": "ここは<br><span style='font-size: 0.9em;'>Creativeを<br>育てる小さな<br>Garden</span>",
-    "description": "creative-garden で公開しているWEBツール・サイトをまとめたポータルサイトです。",
+    "headline": "ここは<br><span style='font-size: 0.9em;'>Creativeを<br>育てる小さな<br>Garden</span><br><span style='font-size: 0.5em;'>- クリエイティブガーデン -</span>",
+    "description": "creative-garden (クリエイティブガーデン) で公開しているWEBツール・サイトをまとめたポータルサイトです。",
     "primaryButton": {
       "text": "ツールを見に行く",
       "url": "#tools"
@@ -32,13 +32,13 @@
   },
   "toolsSection": {
     "eyebrow": "LINEUP",
-    "headline": "各WEBサイトへの入口",
+    "headline": "<span style='display:block; font-size: 0.45em; font-weight: 700; color: var(--hot-pink); margin-bottom: 0.5em; letter-spacing: 0.05em;'>クリエイティブガーデン (creative-garden)</span>各WEBサイトへの入口",
     "description": ""
   },
   "aboutSection": {
     "eyebrow": "PORTAL CONCEPT",
-    "headline": "好きなものを、好きなままに。",
-    "description": "creative-garden は、創作と記録のための小さな庭です。<br>Webアプリ制作、AIを活用したものづくり、記事執筆、ファンサイト制作など、ジャンルに縛られず、その時々で夢中になっているものを形にして発信しています。"
+    "headline": "<span style='display:block; font-size: 0.45em; font-weight: 700; color: var(--hot-pink); margin-bottom: 0.5em; letter-spacing: 0.05em;'>creative-garden (クリエイティブガーデン) について</span>好きなものを、好きなままに。",
+    "description": "creative-garden は、「〜好きなものを、好きなままに。〜 」をコンセプトとした、創作と記録のための小さな庭です。<br>Webアプリ制作、AIを活用したものづくり、記事執筆、ファンサイト制作など、ジャンルに縛られず、その時々で夢中になっているものを形にして発信しています。"
   },
   "contactSection": {
     "eyebrow": "AUTHOR",
