@@ -12,7 +12,7 @@
   },
   "hero": {
     "eyebrow": "CREATIVE-GARDEN PORTAL",
-    "headline": "ここは<br><span style='font-size: 0.9em;'>Creativeを<br>育てる小さな<br>Garden</span><br><span style='font-size: 0.5em;'>- クリエイティブガーデン -</span>",
+    "headline": "ここは<br><span style='font-size: 0.9em;'>Creativeを<br>育てる小さな<br>Garden</span><br><span style='font-size: 0.4em;'>- クリエイティブガーデン -</span>",
     "description": "creative-garden (クリエイティブガーデン) で公開しているWEBツール・サイトをまとめたポータルサイトです。",
     "primaryButton": {
       "text": "ツールを見に行く",
