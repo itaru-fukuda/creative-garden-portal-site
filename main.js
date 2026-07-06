@@ -186,4 +186,153 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // === 1. マウス追従キラキラトレイル ===
+  const createSparkleTrail = () => {
+    let lastX = 0;
+    let lastY = 0;
+    const minDistance = 18; // パーティクル間の最小距離
+    const colors = ['#ff64b6', '#42c7ff', '#ffd84f', '#9b6bff', '#7ff7d4'];
+    const shapes = ['✦', '✧', '★', '✿', '•'];
+
+    window.addEventListener('mousemove', (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+
+      const dist = Math.hypot(x - lastX, y - lastY);
+      if (dist < minDistance) return;
+
+      lastX = x;
+      lastY = y;
+
+      const particle = document.createElement('div');
+      particle.className = 'sparkle-particle';
+      particle.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+      
+      particle.style.left = `${x}px`;
+      particle.style.top = `${y}px`;
+      particle.style.color = colors[Math.floor(Math.random() * colors.length)];
+      
+      const tx = (Math.random() - 0.5) * 120;
+      const ty = -60 - Math.random() * 80;
+      const rot = 180 + Math.random() * 360;
+      
+      particle.style.setProperty('--tx', `${tx}px`);
+      particle.style.setProperty('--ty', `${ty}px`);
+      particle.style.setProperty('--rot', `${rot}deg`);
+
+      document.body.appendChild(particle);
+
+      setTimeout(() => {
+        particle.remove();
+      }, 1000);
+    });
+  };
+  createSparkleTrail();
+
+  // === 2. マスコットキャラクターの目線追跡 (Eye Tracking) ===
+  const initMascotEyeTracking = () => {
+    const mascotFace = document.querySelector('.mascot-face');
+    const eyes = document.querySelectorAll('.eye');
+    if (!mascotFace || eyes.length === 0) return;
+
+    window.addEventListener('mousemove', (e) => {
+      const rect = mascotFace.getBoundingClientRect();
+      const faceCenterX = rect.left + rect.width / 2;
+      const faceCenterY = rect.top + rect.height / 2;
+
+      const dx = e.clientX - faceCenterX;
+      const dy = e.clientY - faceCenterY;
+      const angle = Math.atan2(dy, dx);
+      const distance = Math.hypot(dx, dy);
+
+      const maxDistance = 6;
+      const moveDist = Math.min(distance * 0.05, maxDistance);
+
+      const moveX = Math.cos(angle) * moveDist;
+      const moveY = Math.sin(angle) * moveDist;
+
+      eyes.forEach(eye => {
+        eye.style.setProperty('--eye-x', `${moveX}px`);
+        eye.style.setProperty('--eye-y', `${moveY}px`);
+      });
+    });
+
+    window.addEventListener('mouseleave', () => {
+      eyes.forEach(eye => {
+        eye.style.setProperty('--eye-x', '0px');
+        eye.style.setProperty('--eye-y', '0px');
+      });
+    });
+  };
+  initMascotEyeTracking();
+
+  // === 3. ツールカードの3D Tiltエフェクト ===
+  const initCardTilt = () => {
+    if (window.matchMedia('(hover: none)').matches) return;
+
+    const cards = document.querySelectorAll('.tool-card');
+    
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        const maxRotateX = 8;
+        const maxRotateY = 8;
+
+        const rotateX = -y * maxRotateX;
+        const rotateY = x * maxRotateY;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+        card.style.boxShadow = `${-rotateY * 3}px ${20 + rotateX * 3}px 60px rgba(92, 45, 151, 0.22)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0)';
+        card.style.boxShadow = '';
+      });
+    });
+  };
+  initCardTilt();
+
+  // === 4. スクロール連動フェードイン (Scroll Reveal) ===
+  const initScrollReveal = () => {
+    const elementsToReveal = [
+      document.querySelector('.hero-copy'),
+      document.querySelector('.hero-stage'),
+      document.querySelector('.section-heading'),
+      document.querySelector('.about-card'),
+      document.querySelector('.author-section')
+    ];
+
+    const cards = document.querySelectorAll('.tool-card');
+    cards.forEach(card => elementsToReveal.push(card));
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -10% 0px',
+      threshold: 0.1
+    };
+
+    const revealCallback = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(revealCallback, observerOptions);
+
+    elementsToReveal.forEach(el => {
+      if (el) {
+        el.classList.add('reveal-on-scroll');
+        observer.observe(el);
+      }
+    });
+  };
+  initScrollReveal();
 });
