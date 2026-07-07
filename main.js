@@ -2,7 +2,7 @@ import toolsData from './data.json';
 import siteContent from './content.json';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // サイト設定の反映
+  // === 1. サイト基本設定の反映 ===
   if (siteContent.site) {
     const titleEl = document.getElementById('site-title');
     if (titleEl) titleEl.textContent = siteContent.site.title;
@@ -48,18 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hBadge) hBadge.innerHTML = siteContent.hero.idolCardBadge;
     const hIdolText = document.getElementById('hero-idol-text');
     if (hIdolText) hIdolText.innerHTML = siteContent.hero.idolCardText;
-
-    if (siteContent.hero.chips && siteContent.hero.chips.length >= 3) {
-      const c1 = document.getElementById('hero-chip-1');
-      if (c1) c1.innerHTML = siteContent.hero.chips[0];
-      const c2 = document.getElementById('hero-chip-2');
-      if (c2) c2.innerHTML = siteContent.hero.chips[1];
-      const c3 = document.getElementById('hero-chip-3');
-      if (c3) c3.innerHTML = siteContent.hero.chips[2];
-    }
   }
 
-  // ツールセクションの反映
+  // ツールセクションのヘッダー反映
   if (siteContent.toolsSection) {
     const tEyebrow = document.getElementById('tools-eyebrow');
     if (tEyebrow) tEyebrow.innerHTML = siteContent.toolsSection.eyebrow;
@@ -79,18 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (aDesc) aDesc.innerHTML = siteContent.aboutSection.description;
   }
 
-  // コンタクトセクションの反映
+  // === 2. アシンメトリースプリットプロフィールの描画 ===
   if (siteContent.contactSection) {
-    const cEyebrow = document.getElementById('contact-eyebrow');
-    if (cEyebrow) cEyebrow.innerHTML = siteContent.contactSection.eyebrow;
-    const cHeadline = document.getElementById('contact-headline');
-    if (cHeadline) cHeadline.innerHTML = siteContent.contactSection.headline;
-    
     const cAvatar = document.getElementById('contact-avatar');
     if (cAvatar && siteContent.contactSection.avatar) {
       cAvatar.src = siteContent.contactSection.avatar;
-    } else if (cAvatar) {
-      cAvatar.style.display = 'none';
     }
     
     const cName = document.getElementById('contact-name');
@@ -101,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cDesc = document.getElementById('contact-desc');
     if (cDesc) cDesc.innerHTML = siteContent.contactSection.description;
     
+    // SNSリンク描画
     const cLinks = document.getElementById('contact-links');
     if (cLinks && siteContent.contactSection.links) {
       cLinks.innerHTML = '';
@@ -114,6 +99,36 @@ document.addEventListener('DOMContentLoaded', () => {
         cLinks.appendChild(a);
       });
     }
+
+    // チャームポイント (Elegant Table) 描画
+    const detailsList = document.getElementById('contact-details-list');
+    if (detailsList && siteContent.contactSection.details) {
+      detailsList.innerHTML = '';
+      siteContent.contactSection.details.forEach(detail => {
+        const item = document.createElement('div');
+        item.className = 'elegant-list-item';
+        item.innerHTML = `<strong>${detail.label}</strong><span>${detail.value}</span>`;
+        detailsList.appendChild(item);
+      });
+    }
+
+    // 好きなものたち (Elegant List) 描画
+    const favoritesGrid = document.getElementById('contact-favorites-grid');
+    if (favoritesGrid && siteContent.contactSection.favorites) {
+      favoritesGrid.innerHTML = '';
+      siteContent.contactSection.favorites.forEach(fav => {
+        const item = document.createElement('div');
+        item.className = 'elegant-fav-item';
+        item.innerHTML = `
+          <div class="fav-title-wrap">
+            <span class="fav-icon">${fav.icon}</span>
+            <span class="fav-name">${fav.label}</span>
+          </div>
+          <p class="fav-desc">${fav.desc}</p>
+        `;
+        favoritesGrid.appendChild(item);
+      });
+    }
   }
 
   // フッターの反映
@@ -122,52 +137,51 @@ document.addEventListener('DOMContentLoaded', () => {
     if (fCopy) fCopy.innerHTML = siteContent.footer.copyright;
   }
 
+  // === 3. ツールカードのレンダリング ===
   const toolGrid = document.getElementById('tool-grid');
-  
-  if (!toolGrid) return;
+  if (toolGrid) {
+    toolsData.forEach(tool => {
+      if (tool.isVisible === false) return;
 
-  // Render cards
-  toolsData.forEach(tool => {
-    if (tool.isVisible === false) return;
+      const article = document.createElement('a');
+      article.href = tool.url || '#';
+      article.className = `tool-card ${tool.colorClass}`;
+      article.target = '_blank';
+      article.rel = 'noopener noreferrer';
+      
+      let thumbIconContent = tool.thumbIcon || '';
+      if (tool.thumbIcon && tool.thumbIcon.match(/\.(png|jpe?g|gif|svg|webp)$/i)) {
+        thumbIconContent = `<img src="${tool.thumbIcon}" alt="アイコン" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />`;
+      }
 
-    const article = document.createElement('a');
-    article.href = tool.url || '#';
-    article.className = `tool-card ${tool.colorClass}`;
-    article.target = '_blank';
-    article.rel = 'noopener noreferrer';
-    
-    let thumbIconContent = tool.thumbIcon || '';
-    if (tool.thumbIcon && tool.thumbIcon.match(/\.(png|jpe?g|gif|svg|webp)$/i)) {
-      thumbIconContent = `<img src="${tool.thumbIcon}" alt="アイコン" style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px;" />`;
-    }
+      let bgImageHtml = '';
+      if (tool.image) {
+        bgImageHtml = `<img src="${tool.image}" alt="${tool.title || ''}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0;" />`;
+      }
 
-    let bgImageHtml = '';
-    if (tool.image) {
-      bgImageHtml = `<img src="${tool.image}" alt="${tool.title || ''}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0;" />`;
-    }
+      let thumbnailHtml = `
+        <div class="thumbnail ${tool.image ? 'has-image' : (tool.thumbGradient || 'thumb-gradient-1')}" role="img" aria-label="${tool.title || 'ツール'}のサムネイル" style="position: relative; overflow: hidden;">
+          ${bgImageHtml}
+          ${tool.thumbIcon ? `<span class="thumb-icon" style="position: relative; z-index: 1;">${thumbIconContent}</span>` : ''}
+          ${tool.thumbLabel ? `<span class="thumb-label" style="position: relative; z-index: 1; margin-top: 8px;">${tool.thumbLabel}</span>` : ''}
+        </div>
+      `;
 
-    let thumbnailHtml = `
-      <div class="thumbnail ${tool.image ? '' : (tool.thumbGradient || 'thumb-gradient-1')}" role="img" aria-label="${tool.title || 'ツール'}のサムネイル" style="position: relative; overflow: hidden;">
-        ${bgImageHtml}
-        ${tool.thumbIcon ? `<span class="thumb-icon" style="position: relative; z-index: 1;">${thumbIconContent}</span>` : ''}
-        ${tool.thumbLabel ? `<span class="thumb-label" style="position: relative; z-index: 1; margin-top: 8px;">${tool.thumbLabel}</span>` : ''}
-      </div>
-    `;
-
-    article.innerHTML = `
-      ${thumbnailHtml}
-      <div class="tool-body">
-        ${tool.tag ? `<span class="tag">${tool.tag}</span>` : ''}
-        ${tool.title ? `<h3>${tool.title}</h3>` : ''}
-        ${tool.description ? `<p>${tool.description}</p>` : ''}
-        <span class="card-link">
-          サイトを開く <span>→</span>
-        </span>
-      </div>
-    `;
-    
-    toolGrid.appendChild(article);
-  });
+      article.innerHTML = `
+        ${thumbnailHtml}
+        <div class="tool-body">
+          ${tool.tag ? `<span class="tag">${tool.tag}</span>` : ''}
+          ${tool.title ? `<h3>${tool.title}</h3>` : ''}
+          ${tool.description ? `<p>${tool.description}</p>` : ''}
+          <span class="card-link">
+            サイトを開く <span>→</span>
+          </span>
+        </div>
+      `;
+      
+      toolGrid.appendChild(article);
+    });
+  }
 
   // ハンバーガーメニューの開閉制御
   const menuToggle = document.getElementById('menu-toggle');
@@ -178,7 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
       navLinks.classList.toggle('is-active');
     });
 
-    // メニュー内のリンクをクリックした時に閉じる
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         menuToggle.classList.remove('is-active');
@@ -187,91 +200,108 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // === 1. マウス追従キラキラトレイル ===
-  const createSparkleTrail = () => {
-    let lastX = 0;
-    let lastY = 0;
-    const minDistance = 18; // パーティクル間の最小距離
-    const colors = ['#ff64b6', '#42c7ff', '#ffd84f', '#9b6bff', '#7ff7d4'];
-    const shapes = ['✦', '✧', '★', '✿', '•'];
+  // === 4. Luca's 24H 時間帯切り替えシステム (Interactive Theme System) ===
+  const applyTheme = (themeName) => {
+    // bodyのテーマクラス切り替え
+    document.body.classList.remove('theme-morning', 'theme-daytime', 'theme-sunset', 'theme-night');
+    document.body.classList.add(`theme-${themeName}`);
 
-    window.addEventListener('mousemove', (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
-
-      const dist = Math.hypot(x - lastX, y - lastY);
-      if (dist < minDistance) return;
-
-      lastX = x;
-      lastY = y;
-
-      const particle = document.createElement('div');
-      particle.className = 'sparkle-particle';
-      particle.textContent = shapes[Math.floor(Math.random() * shapes.length)];
-      
-      particle.style.left = `${x}px`;
-      particle.style.top = `${y}px`;
-      particle.style.color = colors[Math.floor(Math.random() * colors.length)];
-      
-      const tx = (Math.random() - 0.5) * 120;
-      const ty = -60 - Math.random() * 80;
-      const rot = 180 + Math.random() * 360;
-      
-      particle.style.setProperty('--tx', `${tx}px`);
-      particle.style.setProperty('--ty', `${ty}px`);
-      particle.style.setProperty('--rot', `${rot}deg`);
-
-      document.body.appendChild(particle);
-
+    // アバターにシネマティックブラートランジションをかける
+    const showcaseAvatar = document.getElementById('hero-avatar-showcase');
+    if (showcaseAvatar) {
+      showcaseAvatar.style.filter = 'blur(12px) scale(0.95)';
+      showcaseAvatar.style.opacity = '0.3';
       setTimeout(() => {
-        particle.remove();
-      }, 1000);
-    });
-  };
-  createSparkleTrail();
+        showcaseAvatar.style.filter = '';
+        showcaseAvatar.style.opacity = '';
+      }, 350);
+    }
 
-  // === 2. マスコットキャラクターの目線追跡 (Eye Tracking) ===
-  const initMascotEyeTracking = () => {
-    const mascotFace = document.querySelector('.mascot-face');
-    const eyes = document.querySelectorAll('.eye');
-    if (!mascotFace || eyes.length === 0) return;
+    // ダイヤルスイッチのアクティブ状態の更新
+    const dials = document.querySelectorAll('.time-dial-btn');
+    dials.forEach(dial => {
+      const isActive = dial.getAttribute('data-time') === themeName;
+      if (isActive) {
+        dial.classList.add('active');
+        dial.setAttribute('aria-checked', 'true');
+      } else {
+        dial.classList.remove('active');
+        dial.setAttribute('aria-checked', 'false');
+      }
+    });
+
+    // 吹き出しメッセージの更新
+    if (siteContent.luca24h && siteContent.luca24h[themeName]) {
+      const data = siteContent.luca24h[themeName];
+      const qTime = document.getElementById('quote-time-label');
+      const qSub = document.getElementById('quote-time-sub');
+      const qText = document.getElementById('quote-text');
+      const qDesc = document.getElementById('quote-desc');
+
+      if (qTime) qTime.textContent = data.timeLabel || '';
+      if (qSub) qSub.textContent = data.subLabel || '';
+      if (qText) qText.textContent = `「${data.quote || ''}」`;
+      if (qDesc) qDesc.textContent = data.desc || '';
+    }
+  };
+
+  // 時刻に基づいた自動時間帯判定
+  const determineTimeOfDay = () => {
+    const hours = new Date().getHours();
+    if (hours >= 5 && hours < 11) return 'morning';
+    if (hours >= 11 && hours < 17) return 'daytime';
+    if (hours >= 17 && hours < 20) return 'sunset';
+    return 'night';
+  };
+
+  // ダイヤルスイッチのイベント紐付け
+  const dials = document.querySelectorAll('.time-dial-btn');
+  dials.forEach(dial => {
+    dial.addEventListener('click', () => {
+      const selectedTime = dial.getAttribute('data-time');
+      if (selectedTime) applyTheme(selectedTime);
+    });
+  });
+
+  // 初期ロード時のテーマ適用
+  applyTheme(determineTimeOfDay());
+
+
+  // === 5. アンビエント・カーソルライトの追従制御 ===
+  const initCursorGlow = () => {
+    const glow = document.getElementById('cursor-glow');
+    if (!glow) return;
+
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
+    let currentX = targetX;
+    let currentY = targetY;
 
     window.addEventListener('mousemove', (e) => {
-      const rect = mascotFace.getBoundingClientRect();
-      const faceCenterX = rect.left + rect.width / 2;
-      const faceCenterY = rect.top + rect.height / 2;
-
-      const dx = e.clientX - faceCenterX;
-      const dy = e.clientY - faceCenterY;
-      const angle = Math.atan2(dy, dx);
-      const distance = Math.hypot(dx, dy);
-
-      const maxDistance = 6;
-      const moveDist = Math.min(distance * 0.05, maxDistance);
-
-      const moveX = Math.cos(angle) * moveDist;
-      const moveY = Math.sin(angle) * moveDist;
-
-      eyes.forEach(eye => {
-        eye.style.setProperty('--eye-x', `${moveX}px`);
-        eye.style.setProperty('--eye-y', `${moveY}px`);
-      });
+      targetX = e.clientX;
+      targetY = e.clientY;
     });
 
-    window.addEventListener('mouseleave', () => {
-      eyes.forEach(eye => {
-        eye.style.setProperty('--eye-x', '0px');
-        eye.style.setProperty('--eye-y', '0px');
-      });
-    });
+    const updateGlow = () => {
+      // 慣性イージングによる流麗な追従 (Lerp)
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
+
+      glow.style.left = `${currentX}px`;
+      glow.style.top = `${currentY}px`;
+
+      requestAnimationFrame(updateGlow);
+    };
+    updateGlow();
   };
-  initMascotEyeTracking();
+  initCursorGlow();
 
-  // === 3. ツールカードの3D Tiltエフェクト ===
-  const initCardTilt = () => {
+
+  // === 6. カードの 3D Tilt エフェクト (マイルドに変更) ===
+  const initTiltEffect = () => {
     if (window.matchMedia('(hover: none)').matches) return;
 
-    const cards = document.querySelectorAll('.tool-card');
+    const cards = document.querySelectorAll('.tool-card, .portrait-frame');
     
     cards.forEach(card => {
       card.addEventListener('mousemove', (e) => {
@@ -279,41 +309,41 @@ document.addEventListener('DOMContentLoaded', () => {
         const x = (e.clientX - rect.left) / rect.width - 0.5;
         const y = (e.clientY - rect.top) / rect.height - 0.5;
 
-        const maxRotateX = 8;
-        const maxRotateY = 8;
+        // あまり激しく揺れないようマイルド（最大 4 度）に設定
+        const maxRotate = 4;
+        const rotateX = -y * maxRotate;
+        const rotateY = x * maxRotate;
 
-        const rotateX = -y * maxRotateX;
-        const rotateY = x * maxRotateY;
-
-        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-        card.style.boxShadow = `${-rotateY * 3}px ${20 + rotateX * 3}px 60px rgba(92, 45, 151, 0.22)`;
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
       });
 
       card.addEventListener('mouseleave', () => {
         card.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0)';
-        card.style.boxShadow = '';
       });
     });
   };
-  initCardTilt();
+  
+  setTimeout(initTiltEffect, 100);
 
-  // === 4. スクロール連動フェードイン (Scroll Reveal) ===
+
+  // === 7. スクロール連動フェードイン ===
   const initScrollReveal = () => {
     const elementsToReveal = [
       document.querySelector('.hero-copy'),
       document.querySelector('.hero-stage'),
       document.querySelector('.section-heading'),
       document.querySelector('.about-card'),
-      document.querySelector('.author-section')
+      document.querySelector('.author-section'),
+      document.querySelector('.time-dial-container')
     ];
 
-    const cards = document.querySelectorAll('.tool-card');
+    const cards = document.querySelectorAll('.tool-card, .elegant-fav-item, .elegant-list-item');
     cards.forEach(card => elementsToReveal.push(card));
 
     const observerOptions = {
       root: null,
-      rootMargin: '0px 0px -10% 0px',
-      threshold: 0.1
+      rootMargin: '0px 0px -6% 0px',
+      threshold: 0.06
     };
 
     const revealCallback = (entries, observer) => {
@@ -334,5 +364,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   };
-  initScrollReveal();
+  
+  setTimeout(initScrollReveal, 150);
 });

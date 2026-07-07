@@ -4,40 +4,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta id="site-desc" name="description" content="creative-garden (クリエイティブガーデン) のサブドメインで公開している便利なWEBツールをまとめた、明るくポップなポータルサイトです。" />
-  <meta name="keywords" content="クリエイティブガーデン, creative garden, creative-garden, WEBツール, ポータルサイト" />
-  <title id="site-title">creative-garden (クリエイティブガーデン) Portal | つくる人のためのWEBツールガーデン</title>
+  <meta id="site-desc" name="description" content="「鐘ヶ崎ルカ」の公式ポータル＆創作活動「creative-garden」のWEBツールやコンテンツをまとめた、洗練された大人のポートフォリオサイトです。" />
+  <meta name="keywords" content="鐘ヶ崎ルカ, Luca Kanegasaki, クリエイティブガーデン, creative garden, ポータルサイト, ポートフォリオ" />
+  <title id="site-title">Luca's Garden | 鐘ヶ崎ルカ Official Portal</title>
 
   <!-- OGP / Twitter Card metadata -->
-  <link rel="canonical" href="https://creative-garden.com/" />
+  <link rel="canonical" href="https://rasu.jp/" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://creative-garden.com/" />
-  <meta property="og:title" content="creative-garden (クリエイティブガーデン) Portal | つくる人のためのWEBツールガーデン" />
-  <meta property="og:description" content="creative-garden (クリエイティブガーデン) で公開しているWEBツール・サイトをまとめたポータルサイトです。" />
-  <meta property="og:image" content="https://creative-garden.com/assets/ogp.png" />
-  <meta property="og:site_name" content="creative-garden Portal" />
+  <meta property="og:url" content="https://rasu.jp/" />
+  <meta property="og:title" content="Luca's Garden | 鐘ヶ崎ルカ Official Portal" />
+  <meta property="og:description" content="「鐘ヶ崎ルカ」の公式ポータル＆創作活動「creative-garden」のWEBツールやコンテンツをまとめた、洗練された大人のポートフォリオサイトです。" />
+  <meta property="og:image" content="https://rasu.jp/assets/ogp.png" />
+  <meta property="og:site_name" content="Luca's Garden" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="creative-garden (クリエイティブガーデン) Portal | つくる人のためのWEBツールガーデン" />
-  <meta name="twitter:description" content="creative-garden (クリエイティブガーデン) で公開しているWEBツール・サイトをまとめたポータルサイトです。" />
-  <meta name="twitter:image" content="https://creative-garden.com/assets/ogp.png" />
+  <meta name="twitter:title" content="Luca's Garden | 鐘ヶ崎ルカ Official Portal" />
+  <meta name="twitter:description" content="「鐘ヶ崎ルカ」の公式ポータル＆創作活動「creative-garden」のWEBツールやコンテンツをまとめた、洗練された大人のポートフォリオサイトです。" />
+  <meta name="twitter:image" content="https://rasu.jp/assets/ogp.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Google Fonts: Playfair Display (上品なセリフ体), Noto Serif JP, Plus Jakarta Sans (トレンドのサンセリフ) -->
   <link
-    href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Poppins:wght@600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <div class="sparkle-field" aria-hidden="true">
-    <span></span><span></span><span></span><span></span><span></span>
-  </div>
+  <!-- アンビエント・カーソルライト (マウスに静かに追従する柔らかいネオンの光彩) -->
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
 
   <header class="site-header">
-    <a class="logo" href="#top" aria-label="creative-garden portal top">
+    <a class="logo" href="#top" aria-label="Luca's Garden portal top">
       <span class="logo-mark" id="logo-mark">✦</span>
-      <span id="logo-text">creative-garden</span>
+      <span id="logo-text">Luca's Garden</span>
     </a>
     <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開閉する">
       <span></span>
@@ -45,55 +45,86 @@
       <span></span>
     </button>
     <nav class="nav-links" id="nav-links" aria-label="ページ内ナビゲーション">
-      <a href="#tools" id="nav-tools">WEBツール</a>
-      <a href="#about" id="nav-about">About</a>
+      <a href="#tools" id="nav-tools">Contents</a>
+      <a href="#about" id="nav-about">About Luca</a>
       <a href="#contact" id="nav-contact">Profile</a>
     </nav>
   </header>
 
   <main id="top">
+    <!-- 時間帯切り替えシステム (Luca's 24H Segmented Dial - ミニマルかつ洗練されたダイヤル) -->
+    <div class="time-dial-container section-shell">
+      <div class="time-dial-track">
+        <button class="time-dial-btn active" data-time="morning" role="radio" aria-checked="true" aria-label="Morning">
+          <span class="dial-dot"></span>
+          <span class="dial-label">Morning</span>
+        </button>
+        <button class="time-dial-btn" data-time="daytime" role="radio" aria-checked="false" aria-label="Daytime">
+          <span class="dial-dot"></span>
+          <span class="dial-label">Daytime</span>
+        </button>
+        <button class="time-dial-btn" data-time="sunset" role="radio" aria-checked="false" aria-label="Sunset">
+          <span class="dial-dot"></span>
+          <span class="dial-label">Sunset</span>
+        </button>
+        <button class="time-dial-btn" data-time="night" role="radio" aria-checked="false" aria-label="Night">
+          <span class="dial-dot"></span>
+          <span class="dial-label">Night</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ヒーローセクション (エモーショナルな左右アシンメトリースプリット) -->
     <section class="hero section-shell">
       <div class="hero-copy">
-        <p class="eyebrow" id="hero-eyebrow">CREATIVE-GARDEN PORTAL</p>
+        <p class="eyebrow" id="hero-eyebrow">LUCA'S PORTAL SITE</p>
         <h1 id="hero-headline">
-          ひらめきが咲く、
-          <span>ポップなWEBツールガーデン。<br>- クリエイティブガーデン (creative-garden) -</span>
+          The creative garden<br>
+          <span>blooms in the midnight.</span>
         </h1>
         <p class="hero-text" id="hero-desc">
-          creative-garden ドメインで公開しているサブドメインサイトを、アイドルや
-          Vtuber のファンサイトのように明るく楽しく探せるポータルにまとめました。
+          ここは鐘ヶ崎ルカの公式ポータルであり、ものづくりブランド「creative-garden」で制作したWEBツールやファンアートを気ままにまとめた場所です。
         </p>
+
+        <!-- ルカのリアルタイム吹き出しメッセージ (シネマティックなガラスプレート風) -->
+        <div class="hero-quote-box">
+          <div class="quote-header">
+            <span class="quote-time-label" id="quote-time-label">01 Morning</span>
+            <span class="quote-time-sub" id="quote-time-sub">朝のはじまり</span>
+          </div>
+          <p class="quote-text" id="quote-text">「おはよう。今日も一緒に、素敵な一日にしよ？」</p>
+          <p class="quote-desc" id="quote-desc">光がまぶしくて、ちょっとだけ眠いけど、今日もいい日になりそう。</p>
+        </div>
+
         <div class="hero-actions">
-          <a class="button primary" href="#tools" id="hero-btn-primary">ツールを見に行く</a>
-          <a class="button secondary" href="#about" id="hero-btn-secondary">コンセプトを見る</a>
+          <a class="button primary" href="#tools" id="hero-btn-primary">コンテンツを見る</a>
+          <a class="button secondary" href="#about" id="hero-btn-secondary">ルカについて</a>
         </div>
       </div>
-      <div class="hero-stage" aria-label="creative-garden の世界観を表すイラスト">
-        <div class="idol-card">
-          <div class="badge" id="hero-idol-badge">NEW!</div>
-          <div class="mascot-face">
-            <span class="eye left"></span>
-            <span class="eye right"></span>
-            <span class="smile"></span>
+
+      <!-- ビジュアルショーケース (余白と影、シアーなガラスプレートが重なる肖像フレーム) -->
+      <div class="hero-stage" aria-label="鐘ヶ崎ルカ アートショーケース">
+        <div class="portrait-frame">
+          <div class="badge" id="hero-idol-badge">Luca's 24H</div>
+          <div class="portrait-image-wrap">
+            <img src="/assets/profile_icon_kane_002_circle.png" alt="鐘ヶ崎ルカ" class="hero-avatar-showcase" id="hero-avatar-showcase" />
+            <div class="ambient-glow"></div>
           </div>
-          <p id="hero-idol-text">Welcome to<br />Creative Garden</p>
+          <p class="portrait-caption" id="hero-idol-text">朝から夜まで、ずっと一緒に。</p>
         </div>
-        <div class="floating-chip chip-pink" id="hero-chip-1">Fan Site Mood</div>
-        <div class="floating-chip chip-blue" id="hero-chip-2">Web Tools</div>
-        <div class="floating-chip chip-yellow" id="hero-chip-3">Pop & Bright</div>
       </div>
     </section>
 
+    <!-- ツールセクション (余白を大きく取った美しいカードグリッド) -->
     <section id="tools" class="tools-section section-shell">
       <div class="section-heading">
-        <p class="eyebrow" id="tools-eyebrow">SUBDOMAIN LINEUP</p>
+        <p class="eyebrow" id="tools-eyebrow">PORTFOLIO & TOOLS</p>
         <h2 id="tools-headline">
-          <span style="display:block; font-size: 0.45em; font-weight: 700; color: var(--hot-pink); margin-bottom: 0.5em; letter-spacing: 0.05em;">クリエイティブガーデン (creative-garden)</span>
-          各WEBツールへの入口
+          <span style="display:block; font-family: var(--font-title); font-size: 0.5em; font-weight: 600; color: var(--pink); margin-bottom: 0.5em; letter-spacing: 0.05em;">Luca & creative-garden</span>
+          制作コンテンツ一覧
         </h2>
         <p id="tools-desc">
-          サムネイル・紹介文・リンクをカードで整理。実際のサブドメインURLに差し替えるだけで、
-          そのままポータルとして使えます。
+          私がお届けする、創作物や便利なWEBツールへの入り口です。お気に入りの場所を見つけてね。
         </p>
       </div>
 
@@ -101,41 +132,57 @@
       </div>
     </section>
 
+    <!-- アバウトカード (上質で静かなモノトーン・シアーガラス) -->
     <section id="about" class="about-section section-shell">
       <div class="about-card">
         <p class="eyebrow" id="about-eyebrow">PORTAL CONCEPT</p>
         <h2 id="about-headline">
-          <span style="display:block; font-size: 0.45em; font-weight: 700; color: var(--hot-pink); margin-bottom: 0.5em; letter-spacing: 0.05em;">Creative Garden (クリエイティブガーデン) について</span>
-          好きなものを、好きなままに。
+          <span style="display:block; font-family: var(--font-title); font-size: 0.5em; font-weight: 600; color: var(--pink); margin-bottom: 0.5em; letter-spacing: 0.05em;">好きなものを、好きなままに。</span>
+          Creative Garden について
         </h2>
         <p id="about-desc">
-          角丸カード、鮮やかなグラデーション、キラキラした装飾を組み合わせ、
-          「便利そう」だけでなく「触ってみたい」と感じられる第一印象を目指しました。
-          ツールが増えてもカードを追加するだけで拡張できます。
+          「creative-garden」は、〜好きなものを、好きなままに。〜 をコンセプトとした、私のための小さな庭です。<br>Webアプリ制作、AIを活用したものづくり、ファンサイト制作など、ジャンルに縛られず、その時々で夢中になっているものを形にして発信しています。夜更かしで気まぐれな私と一緒に、クリエイティブを育てていきましょう。
         </p>
       </div>
     </section>
 
+    <!-- プロフィールセクション (エモーショナルなアシンメトリースプリット) -->
     <section id="contact" class="author-section section-shell">
-      <div class="author-header">
-        <div>
-          <p class="eyebrow" id="contact-eyebrow"></p>
-          <h2 id="contact-headline"></h2>
-        </div>
-        <div class="contact-links" id="contact-links"></div>
-      </div>
-      <div class="author-profile">
-        <img src="" alt="Profile" class="author-avatar" id="contact-avatar" />
-        <div class="author-info">
-          <h3 class="author-name" id="contact-name"></h3>
+      <div class="profile-split">
+        <!-- 左側：アバターとバイオ -->
+        <div class="profile-visual-col">
+          <p class="eyebrow" id="contact-eyebrow">PROFILE</p>
+          <h2 class="visual-huge-title">LUCA</h2>
+          
+          <div class="profile-avatar-container">
+            <img src="/assets/profile_icon_kane_002_circle.png" alt="Profile" class="author-avatar" id="contact-avatar" />
+            <div class="avatar-ring-glow"></div>
+          </div>
+          
+          <h3 class="author-name" id="contact-name">鐘ヶ崎ルカ</h3>
           <p id="contact-desc" class="author-bio"></p>
+          
+          <div class="contact-links" id="contact-links"></div>
+        </div>
+
+        <!-- 右側：魅力・好きなもののエレガントテーブル -->
+        <div class="profile-data-col">
+          <div class="data-block">
+            <h4 class="data-block-title">チャームポイント</h4>
+            <div class="elegant-list" id="contact-details-list"></div>
+          </div>
+
+          <div class="data-block">
+            <h4 class="data-block-title">好きなものたち</h4>
+            <div class="elegant-favorites-list" id="contact-favorites-grid"></div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p id="footer-copy">© creative-garden. All tools bloom here.</p>
+    <p id="footer-copy">© Luca Kanegasaki & creative-garden. All nights and ideas bloom here.</p>
   </footer>
   <script type="module" src="/main.js"></script>
 </body>
