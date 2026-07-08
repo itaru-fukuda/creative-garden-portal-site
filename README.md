@@ -1,6 +1,6 @@
 # creative-garden portal site
 
-creative-garden ドメイン配下で公開している各サブドメインの WEB ツールをまとめるための、静的なポータルサイトです。
+rasu.jp ドメイン配下で公開している各サブドメインの WEB ツールをまとめるための、静的なポータルサイトです。
 
 ## ローカルプレビュー方法
 
@@ -53,7 +53,7 @@ py -m http.server 4173
 各ツールカードの名前、紹介文、サムネイル表示、リンク先は `index.html` の `#tools` セクションで編集できます。
 
 ```html
-<a class="card-link" href="https://idea.creative-garden.example" aria-label="Idea Note を開く">
+<a class="card-link" href="https://idea.rasu.example" aria-label="Idea Note を開く">
   サイトを開く <span>→</span>
 </a>
 ```

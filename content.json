@@ -1,103 +1,101 @@
 {
   "site": {
-    "title": "Luca's Garden | 鐘ヶ崎ルカ Official Portal & Creative Garden",
-    "description": "「鐘ヶ崎ルカ」の公式ポータル＆創作活動「creative-garden」のWEBツールやコンテンツをまとめた、ちょっとダークでサイバーポップなポータルサイトです。",
+    "title": "RASU | 鐘ヶ崎ルカ Official Portal",
+    "description": "「鐘ヶ崎ルカ」の公式ポータル＆活動ユニット「RASU」のWEBツールやコンテンツをまとめた、洗練された大人のポートフォリオサイトです。",
     "logoMark": "✦",
-    "logoText": "Luca's Garden"
+    "logoText": "RASU"
   },
   "nav": {
-    "tools": "Contents",
-    "about": "About Luca",
+    "tools": "Services",
+    "about": "Concept",
     "contact": "Profile"
   },
   "hero": {
     "eyebrow": "LUCA'S PORTAL SITE",
-    "headline": "夜更かしな私の、<br><span style='font-size: 0.9em;'>クリエイティブが咲く</span><br>小さな庭園へようこそ。",
-    "description": "ここは鐘ヶ崎ルカの公式ポータルであり、ものづくりブランド「creative-garden」で制作したWEBツールやファンアートを気ままにまとめた場所です。",
+    "headline": "鐘ヶ崎ルカ × RASU<br><span>Resonant Absorbing Sparkle Unit</span>",
+    "description": "日々の中にある小さなきらめきを受け取り、響き合わせ、新しい価値へと育てていく。<br>鐘ヶ崎ルカによる活動ユニット「RASU」の公式ポータルです。",
     "primaryButton": {
       "text": "コンテンツを見る",
       "url": "#tools"
     },
     "secondaryButton": {
       "text": "ルカについて",
-      "url": "#about"
+      "url": "#profile"
     },
-    "idolCardBadge": "Luca's 24H",
-    "idolCardText": "朝から夜まで、<br />ずっと一緒に。",
+    "idolCardBadge": "RASU",
+    "idolCardText": "きらめきを響き合わせる場所",
     "chips": [
       "Cyber Pop",
       "Neon Night",
-      "Creative Garden"
+      "RASU"
     ]
   },
   "toolsSection": {
-    "eyebrow": "PORTFOLIO & TOOLS",
-    "headline": "<span style='display:block; font-size: 0.45em; font-weight: 700; color: var(--hot-pink); margin-bottom: 0.5em; letter-spacing: 0.05em;'>鐘ヶ崎ルカ & creative-garden</span>制作コンテンツ一覧",
+    "eyebrow": "PORTFOLIO & PRODUCTS",
+    "headline": "<span style='display:block; font-size: 0.45em; font-weight: 700; color: var(--color-primary); margin-bottom: 0.5em; letter-spacing: 0.05em;'>鐘ヶ崎ルカ & RASU</span>制作コンテンツ一覧",
     "description": "私がお届けする、創作物や便利なWEBツールへの入り口です。お気に入りの場所を見つけてね。"
   },
   "aboutSection": {
-    "eyebrow": "PORTAL CONCEPT",
-    "headline": "<span style='display:block; font-size: 0.45em; font-weight: 700; color: var(--hot-pink); margin-bottom: 0.5em; letter-spacing: 0.05em;'>好きなものを、好きなままに。</span>Creative Garden について",
-    "description": "「creative-garden」は、〜好きなものを、好きなままに。〜 をコンセプトとした、私のための小さな庭です。<br>Webアプリ制作、AIを活用したものづくり、ファンサイト制作など、ジャンルに縛られず、その時々で夢中になっているものを形にして発信しています。夜更かしで気まぐれな私と一緒に、クリエイティブを育てていきましょう。"
-  },
-  "luca24h": {
-    "morning": {
-      "timeLabel": "01 Morning",
-      "subLabel": "朝のはじまり",
-      "quote": "おはよう。今日も一緒に、素敵な一日にしよ？",
-      "desc": "光がまぶしくて、ちょっとだけ眠いけど、今日もいい日になりそう。"
-    },
-    "daytime": {
-      "timeLabel": "02 Daytime",
-      "subLabel": "いちばん楽しい時間",
-      "quote": "やっほー！一緒に思いっきり遊ぼっ♪",
-      "desc": "水しぶきも、笑い声も、全部がキラキラしてる！"
-    },
-    "sunset": {
-      "timeLabel": "03 Sunset",
-      "subLabel": "夕暮れのひととき",
-      "quote": "ちょっとだけ、このままでいたいな…",
-      "desc": "風が少し冷たくなってきた。この空の色、なんだか好き。"
-    },
-    "night": {
-      "timeLabel": "04 Night",
-      "subLabel": "夜の余韻",
-      "quote": "おやすみ、いい夢を。♡",
-      "desc": "今日もありがとう。また、好きな時間を重ねようね。"
-    }
+    "eyebrow": "CREATIVE CONCEPT",
+    "headline": "<span style='display:block; font-size: 0.45em; font-weight: 700; color: var(--color-primary); margin-bottom: 0.5em; letter-spacing: 0.05em;'>きらめきを、響き合わせる。</span>RASU について",
+    "description": "「RASU」は、「Resonant Absorbing Sparkle Unit」の頭文字をつなげた造語で、宮沢賢治の「羅須地人協会」に由来しています。<br>日々の中にある小さなきらめきを受け取り、響き合わせ、新しい価値へと育てていくことをミッションとしています。"
   },
   "contactSection": {
     "eyebrow": "PROFILE",
     "headline": "鐘ヶ崎ルカの魅力解剖図",
-    "avatar": "/assets/profile_icon_kane_002_circle.png",
+    "avatar": "/assets/hero_portrait_luca_002.png",
     "name": "鐘ヶ崎ルカ (Luca Kanegasaki)",
-    "description": "夜更かし系で気まぐれなシステムエンジニア。クールに見えて、実は甘えたがりな一面も…？<br>Web制作やAIを活用したものづくりを趣味で行っています。2010年代のアニメやアニソン、深夜の静かな時間、ヘッドホンで聴くお気に入りの音楽が大好きです。<br>岩手の心地よい自然や美味しい食べ物、温泉に囲まれてのびのび暮らしています。",
+    "description": "興味があるものに一直線！<br>Web制作やAIを活用したものづくりを趣味で行っています。<br>本業は大手サービス会社のシステム職です。<br>平成のインターネット老人会が好き。Vtuber活動は休止中。",
     "favorites": [
-      {"icon": "🌙", "label": "夜更かし", "desc": "静かな深夜が一番クリエイティブになれる時間。"},
-      {"icon": "🐾", "label": "猫・気まぐれ", "desc": "猫のように自由奔放で、自分の直感に従って行動します。"},
-      {"icon": "🍬", "label": "駄菓子", "desc": "ちょっとつまめる駄菓子が作業のお供に欠かせません。"},
-      {"icon": "🎵", "label": "音楽", "desc": "お気に入りの大きなヘッドホンでアニソンや深夜ネオン系の曲を聴くこと。"},
-      {"icon": "✨", "label": "ネオン・深夜", "desc": "暗闇に光るネオンの灯りが、私のアイデンティティ。"}
+      {
+        "icon": "🌙",
+        "label": "夜更かし",
+        "desc": "静かな深夜が一番クリエイティブになれる時間"
+      },
+      {
+        "icon": "🐾",
+        "label": "猫・気まぐれ",
+        "desc": "猫のように自由奔放で、自分の直感に従って行動します"
+      },
+      {
+        "icon": "🎵",
+        "label": "音楽・ラジオ",
+        "desc": "お気に入りの大きなヘッドホンで聴くのが好き"
+      },
+      {
+        "icon": "✨",
+        "label": "ネオン・深夜",
+        "desc": "暗闇に光るネオンの灯りが、私のアイデンティティ"
+      }
     ],
     "details": [
-      {"label": "瞳", "value": "ミステリアスな紫の三白眼。不機嫌そうに見えて、感情が顔に出る瞬間が尊い…？"},
-      {"label": "髪型", "value": "ピンクのツインテール。リボンとチェック柄で、甘さと毒っぽさを共存。"},
-      {"label": "アイテム", "value": "ハートのチョーカーと、お気に入りのピンクのヘッドホン。"}
+      {
+        "label": "瞳",
+        "value": "紫の三白眼。不機嫌そうに見えて、感情が顔に出る瞬間が尊い…？"
+      },
+      {
+        "label": "髪型",
+        "value": "ピンクのツインテール。リボンとチェック柄で、甘さと毒っぽさを共存。"
+      },
+      {
+        "label": "アイテム",
+        "value": "ハートのチョーカーと、お気に入りのピンクのヘッドホン。"
+      }
     ],
     "links": [
       {
-        "text": "<svg role=\"img\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\" style=\"margin-right: 4px; vertical-align: text-bottom;\"><path d=\"M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z\"/></svg> Luca's X",
+        "text": "<svg role=\"img\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\" style=\"margin-right: 4px; vertical-align: text-bottom;\"><path d=\"M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z\"/></svg>",
         "url": "https://x.com/luca_kanegasaki",
         "type": "primary"
       },
       {
-        "text": "<svg role=\"img\" viewBox=\"0 0 98 22\" height=\"16\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\" style=\"vertical-align: middle;\"><path d=\"M60.3377 0.0205078H65.3607V5.41256H70.5272V10.128H65.3607V15.7251H60.3377V10.128H55.1711V5.41256H60.3377V0.0205078Z\"/><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M27.8419 11.5017C27.8419 6.15065 32.1678 1.8042 37.4778 1.8042C42.7879 1.8042 47.1138 6.15065 47.1138 11.5017C47.1138 16.8527 42.7879 21.1992 37.4778 21.1992C32.1678 21.1992 27.8419 16.8527 27.8419 11.5017ZM32.4343 11.4812C32.4343 14.29 34.6896 16.5657 37.4778 16.5657C40.2661 16.5657 42.5214 14.3105 42.5214 11.4812C42.5214 8.67241 40.2661 6.39667 37.4778 6.39667C34.6896 6.39667 32.4343 8.67241 32.4343 11.4812Z\"/><path d=\"M4.87829 1.90517C7.57364 1.85514 10.3765 1.80312 12.6293 1.86569C17.5908 1.98871 19.4565 4.14143 19.5385 9.49247C19.6 12.5063 19.5385 21.1582 19.5385 21.1582H14.167C14.167 17.9452 14.1743 15.8712 14.1797 14.3661C14.187 12.3278 14.1905 11.332 14.167 9.96402C14.1054 7.87281 13.5109 6.8682 11.8912 6.68368C10.169 6.47866 5.39206 6.64268 5.39206 6.64268V21.1582H0.0205078V1.9682C1.48206 1.9682 3.15828 1.93709 4.87829 1.90517Z\"/><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M97.877 11.5017C97.877 6.15065 93.5511 1.8042 88.241 1.8042C82.931 1.8042 78.605 6.15065 78.605 11.5017C78.605 14.6385 80.0402 17.3243 82.2749 19.108C83.8331 20.3381 86.0063 21.1992 88.9176 21.1992C90.3322 21.1992 94.0021 20.8096 96.6469 17.8778L94.4736 14.9665C93.5511 15.7866 91.2343 16.9347 89.3891 16.9347C87.0519 16.9347 85.6373 16.4837 84.6122 15.5201C83.9766 14.946 83.5255 14.0645 83.3205 12.9778H97.7335C97.8155 12.4858 97.877 12.0142 97.877 11.5017ZM83.3615 9.73851C83.8946 7.46278 85.4937 5.78161 88.2205 5.78161C91.0703 5.78161 92.567 7.58579 93.059 9.73851H83.3615Z\"/></svg> note",
+        "text": "<svg role=\"img\" viewBox=\"0 0 98 22\" height=\"16\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\" style=\"vertical-align: middle;\"><path d=\"M60.3377 0.0205078H65.3607V5.41256H70.5272V10.128H65.3607V15.7251H60.3377V10.128H55.1711V5.41256H60.3377V0.0205078Z\"/><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M27.8419 11.5017C27.8419 6.15065 32.1678 1.8042 37.4778 1.8042C42.7879 1.8042 47.1138 6.15065 47.1138 11.5017C47.1138 16.8527 42.7879 21.1992 37.4778 21.1992C32.1678 21.1992 27.8419 16.8527 27.8419 11.5017ZM32.4343 11.4812C32.4343 14.29 34.6896 16.5657 37.4778 16.5657C40.2661 16.5657 42.5214 14.3105 42.5214 11.4812C42.5214 8.67241 40.2661 6.39667 37.4778 6.39667C34.6896 6.39667 32.4343 8.67241 32.4343 11.4812Z\"/><path d=\"M4.87829 1.90517C7.57364 1.85514 10.3765 1.80312 12.6293 1.86569C17.5908 1.98871 19.4565 4.14143 19.5385 9.49247C19.6 12.5063 19.5385 21.1582 19.5385 21.1582H14.167C14.167 17.9452 14.1743 15.8712 14.1797 14.3661C14.187 12.3278 14.1905 11.332 14.167 9.96402C14.1054 7.87281 13.5109 6.8682 11.8912 6.68368C10.169 6.47866 5.39206 6.64268 5.39206 6.64268V21.1582H0.0205078V1.9682C1.48206 1.9682 3.15828 1.93709 4.87829 1.90517Z\"/><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M97.877 11.5017C97.877 6.15065 93.5511 1.8042 88.241 1.8042C82.931 1.8042 78.605 6.15065 78.605 11.5017C78.605 14.6385 80.0402 17.3243 82.2749 19.108C83.8331 20.3381 86.0063 21.1992 88.9176 21.1992C90.3322 21.1992 94.0021 20.8096 96.6469 17.8778L94.4736 14.9665C93.5511 15.7866 91.2343 16.9347 89.3891 16.9347C87.0519 16.9347 85.6373 16.4837 84.6122 15.5201C83.9766 14.946 83.5255 14.0645 83.3205 12.9778H97.7335C97.8155 12.4858 97.877 12.0142 97.877 11.5017ZM83.3615 9.73851C83.8946 7.46278 85.4937 5.78161 88.2205 5.78161C91.0703 5.78161 92.567 7.58579 93.059 9.73851H83.3615Z\"/></svg>",
         "url": "https://note.com/luca_bb",
         "type": "secondary"
       }
     ]
   },
   "footer": {
-    "copyright": "© Luca Kanegasaki & creative-garden. All nights and ideas bloom here."
+    "copyright": "© Luca Kanegasaki & RASU. All nights and sparkles resonant here."
   }
 }

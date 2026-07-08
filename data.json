@@ -7,7 +7,7 @@
     "thumbGradient": "thumb-gradient-1",
     "thumbIcon": "/assets/thumbnails/icon_sakeforio_001.png",
     "thumbLabel": "SAKEfolio",
-    "tag": "記録",
+    "tag": "WEB制作",
     "title": "",
     "description": "SAKEfolio（サケフォリオ）は、あなたの日本酒ライフを豊かにするための記録ツールです。飲んだ銘柄の感想や評価を記録し、あなただけの日本酒ポートフォリオを作成しましょう。",
     "url": "https://sakefolio.rasu.jp/"
@@ -16,13 +16,13 @@
     "id": "palette-mixer",
     "isVisible": true,
     "colorClass": "card-blue",
-    "image": "/assets/thumbnails/bg_bunbuku_fan_001.png",
+    "image": "/assets/thumbnails/bg_bunbuku_fan_002.png",
     "thumbGradient": "thumb-gradient-2",
     "thumbIcon": "/assets/thumbnails/icon_bunbuku_fan_001.png",
     "thumbLabel": "ファンサイト",
     "tag": "WEB制作",
     "title": "",
-    "description": "個人勢Vtuber分福ありさちゃんのファンサイト。<br>プロフィール、配信スケジュール、歌ってみた動画、アーカイブ情報を掲載中。<br>あなたに福のお裾分け！",
+    "description": "応援している個人勢Vtuber「分福ありさ」ちゃんのファンサイト。<br>プロフィール、配信スケジュール、歌ってみた動画、アーカイブ情報を掲載中。<br>あなたに福のお裾分け！",
     "url": "https://bunbuku-arisa.rasu.jp/"
   },
   {
@@ -32,10 +32,10 @@
     "image": "/assets/thumbnails/bg_stamp_splitter_001.png",
     "thumbGradient": "thumb-gradient-3",
     "thumbIcon": "/assets/thumbnails/icon_simple_stamp_splitter_001.png",
-    "thumbLabel": "画像分割ツール",
-    "tag": "支援",
+    "thumbLabel": "スタンプ作成支援ツール",
+    "tag": "WEBツール",
     "title": "",
-    "description": "1枚の画像内に整列したチャットアプリ用スタンプ画像を切り分けてダウンロードできるWebツールです。",
+    "description": "チャットアプリ用のスタンプ画像を1枚の画像から、切り分けてダウンロードできるWebツールです。",
     "url": "https://easy-stamp.rasu.jp/"
   },
   {
@@ -48,6 +48,6 @@
     "tag": "予定管理",
     "title": "Schedule Stage",
     "description": "公開予定、制作タスク、イベント告知をステージ進行のように見やすく管理するWEBツールです。",
-    "url": "https://schedule.creative-garden.example"
+    "url": "https://schedule.rasu.jp/"
   }
 ]
