@@ -50,7 +50,25 @@ py -m http.server 4173
 
 ## 掲載内容の差し替え
 
-各ツールカードの名前、紹介文、サムネイル表示、リンク先は `index.html` の `#tools` セクションで編集できます。
+### Heroの動画・静止画を切り替える
+
+`content.json` の `hero.media.type` でHeroに表示するメディアを指定できます。
+
+```json
+"media": {
+  "type": "video",
+  "videoSrc": "/assets/main_visual_landscape_001_pingpong.mp4",
+  "imageSrc": "/assets/main_visual_landscape_004.png",
+  "poster": "/assets/main_visual_landscape_004.png",
+  "alt": "RASU 公式メインビジュアル"
+}
+```
+
+- 動画を表示する場合は `type` を `"video"` にします。
+- 静止画を表示する場合は `type` を `"image"` にします。
+- `videoSrc`、`imageSrc`、`poster` には `public` からのパスを指定します。
+
+各ツールカードの名前、紹介文、サムネイル表示、リンク先は `data.json` で編集できます。
 
 ```html
 <a class="card-link" href="https://idea.rasu.example" aria-label="Idea Note を開く">

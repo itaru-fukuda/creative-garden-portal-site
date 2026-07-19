@@ -21,13 +21,88 @@ document.addEventListener('DOMContentLoaded', () => {
     const hEyebrow = document.getElementById('hero-eyebrow');
     if (hEyebrow) hEyebrow.innerHTML = siteContent.hero.eyebrow;
     const hHeadline = document.getElementById('hero-headline');
-    if (hHeadline) hHeadline.innerHTML = siteContent.hero.headline;
+    if (hHeadline) {
+      const hasExpandedBrand = hHeadline.querySelector('.brand-word');
+      if (hasExpandedBrand) {
+        hHeadline.setAttribute('aria-label', siteContent.hero.fullName || siteContent.hero.headline);
+      } else {
+        hHeadline.innerHTML = siteContent.hero.headline;
+      }
+    }
+
+    // content.json の設定に応じて動画または静止画を表示する
+    const media = siteContent.hero.media || {};
+    const heroVideo = document.getElementById('main-visual-video');
+    const heroVideoSource = document.getElementById('main-visual-video-source');
+    const heroImage = document.getElementById('main-visual-image');
+    const showImage = media.type === 'image';
+
+    if (heroVideo && heroVideoSource && heroImage) {
+      if (media.poster) heroVideo.poster = media.poster;
+      if (media.alt) {
+        heroVideo.setAttribute('aria-label', media.alt);
+        heroImage.alt = media.alt;
+      }
+
+      if (showImage) {
+        heroVideo.pause();
+        heroVideo.hidden = true;
+        heroImage.hidden = false;
+        if (media.imageSrc) heroImage.src = media.imageSrc;
+      } else {
+        heroImage.hidden = true;
+        heroVideo.hidden = false;
+        heroVideo.muted = true;
+        if (media.videoSrc && heroVideoSource.getAttribute('src') !== media.videoSrc) {
+          heroVideoSource.src = media.videoSrc;
+          heroVideo.load();
+        }
+        heroVideo.play().catch(() => {
+          // 自動再生が制限された場合はポスター画像を表示する
+        });
+      }
+    }
+
     const hDesc = document.getElementById('hero-desc');
     if (hDesc) hDesc.innerHTML = siteContent.hero.description;
+    const primaryButton = document.getElementById('cta-primary');
+    if (primaryButton && siteContent.hero.primaryButton) {
+      primaryButton.textContent = siteContent.hero.primaryButton.text;
+      primaryButton.href = siteContent.hero.primaryButton.url;
+    }
+    const secondaryButton = document.getElementById('cta-secondary');
+    if (secondaryButton && siteContent.hero.secondaryButton) {
+      secondaryButton.textContent = siteContent.hero.secondaryButton.text;
+      secondaryButton.href = siteContent.hero.secondaryButton.url;
+    }
+  }
+
+  // RASU紹介セクション
+  if (siteContent.aboutSection) {
+    const aboutEyebrow = document.getElementById('about-eyebrow');
+    if (aboutEyebrow) aboutEyebrow.textContent = siteContent.aboutSection.eyebrow;
+    const aboutHeadline = document.getElementById('about-headline');
+    if (aboutHeadline) aboutHeadline.innerHTML = siteContent.aboutSection.headline;
+    const aboutDesc = document.getElementById('about-desc');
+    if (aboutDesc) aboutDesc.innerHTML = siteContent.aboutSection.description;
+  }
+
+  // 制作コンテンツセクション
+  if (siteContent.toolsSection) {
+    const toolsEyebrow = document.getElementById('tools-eyebrow');
+    if (toolsEyebrow) toolsEyebrow.textContent = siteContent.toolsSection.eyebrow;
+    const toolsHeadline = document.getElementById('tools-headline');
+    if (toolsHeadline) toolsHeadline.innerHTML = siteContent.toolsSection.headline;
+    const toolsDesc = document.getElementById('tools-desc');
+    if (toolsDesc) toolsDesc.innerHTML = siteContent.toolsSection.description;
   }
 
   // プロフィールセクション
   if (siteContent.contactSection) {
+    const cEyebrow = document.getElementById('contact-eyebrow');
+    if (cEyebrow) cEyebrow.textContent = siteContent.contactSection.eyebrow;
+    const cHeadline = document.getElementById('contact-headline');
+    if (cHeadline) cHeadline.innerHTML = siteContent.contactSection.headline;
     const cAvatar = document.getElementById('contact-avatar');
     if (cAvatar && siteContent.contactSection.avatar) {
       cAvatar.src = siteContent.contactSection.avatar;
@@ -70,6 +145,39 @@ document.addEventListener('DOMContentLoaded', () => {
         favoritesGrid.appendChild(card);
       });
     }
+
+    // X・noteへの導線
+    const socialLinksGrid = document.getElementById('social-links-grid');
+    if (socialLinksGrid && siteContent.contactSection.links) {
+      socialLinksGrid.innerHTML = '';
+      siteContent.contactSection.links.forEach(link => {
+        const anchor = document.createElement('a');
+        anchor.className = 'social-link-card';
+        anchor.href = link.url;
+        anchor.target = '_blank';
+        anchor.rel = 'noopener noreferrer';
+        anchor.setAttribute('aria-label', `${link.label}を開く`);
+        anchor.innerHTML = `
+          <span class="social-link-icon" aria-hidden="true">${link.text}</span>
+          <span class="social-link-copy">
+            <strong>${link.label}</strong>
+            <span>${link.description}</span>
+          </span>
+          <span class="social-link-arrow" aria-hidden="true">↗</span>
+        `;
+        socialLinksGrid.appendChild(anchor);
+      });
+    }
+  }
+
+  // 外部リンクセクション
+  if (siteContent.linksSection) {
+    const linksEyebrow = document.getElementById('links-eyebrow');
+    if (linksEyebrow) linksEyebrow.textContent = siteContent.linksSection.eyebrow;
+    const linksHeadline = document.getElementById('links-headline');
+    if (linksHeadline) linksHeadline.innerHTML = siteContent.linksSection.headline;
+    const linksDesc = document.getElementById('links-desc');
+    if (linksDesc) linksDesc.innerHTML = siteContent.linksSection.description;
   }
 
   // ==========================================
@@ -160,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const initTiltEffect = () => {
     if (window.matchMedia('(hover: none)').matches) return;
 
-    const tiltElements = document.querySelectorAll('.main-visual-wrap, .service-card, .concept-card, .profile-avatar-container');
+    const tiltElements = document.querySelectorAll('.main-visual-wrap, .service-card, .concept-card, .profile-avatar-container, .social-link-card');
     tiltElements.forEach(el => {
       el.addEventListener('mousemove', (e) => {
         const rect = el.getBoundingClientRect();
@@ -222,14 +330,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const getRevealElements = () => {
       const els = [
         document.querySelector('.main-visual-wrap'),
-        document.querySelector('.hero-grid'),
+        document.querySelector('.concept-card'),
+        document.querySelector('#projects .section-header-editorial'),
         document.querySelector('.profile-layout'),
-        document.querySelector('.section-header-editorial'),
-        document.querySelector('.concept-card')
+        document.querySelector('.links-heading')
       ];
       
       // 動的カードおよびリスト項目を追加
-      document.querySelectorAll('.service-card, .editorial-list-item, .editorial-fav-card').forEach(el => {
+      document.querySelectorAll('.service-card, .editorial-list-item, .editorial-fav-card, .social-link-card').forEach(el => {
         els.push(el);
       });
 
