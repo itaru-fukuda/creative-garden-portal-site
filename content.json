@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "RASU | 鐘ヶ崎ルカ Official Portal",
-    "description": "RASUは、鐘ヶ崎ルカがWebツールやコンテンツをつくり、届ける個人クリエイティブユニットです。制作コンテンツ、活動理念、プロフィールを掲載しています。",
+    "description": "RASUは、鐘ヶ崎ルカの個人クリエイティブユニットです。このポータルサイトでは、制作コンテンツ、活動理念、プロフィールを掲載しています。",
     "logoMark": "✦",
     "logoText": "RASU"
   },
@@ -15,10 +15,13 @@
     "eyebrow": "CREATIVE UNIT BY LUCA KANEGASAKI",
     "headline": "RASU",
     "fullName": "Resonant Absorbing Sparkle Unit",
+    "translation": "きらめきを、響き合わせる",
     "media": {
       "type": "image",
       "videoSrc": "/assets/main_visual_landscape_001_pingpong.mp4",
       "imageSrc": "/assets/main_visual_landscape_004.png",
+      "mobileImageSrc": "",
+      "mobileObjectPosition": "48% center",
       "poster": "/assets/main_visual_landscape_004.png",
       "alt": "RASU 公式メインビジュアル"
     },
@@ -47,7 +50,7 @@
   "aboutSection": {
     "eyebrow": "ABOUT RASU",
     "headline": "<span>きらめきを、響き合わせる。</span>RASUについて",
-    "description": "<strong>RASUは、鐘ヶ崎ルカがWebツールやコンテンツをつくり、届ける個人クリエイティブユニットです。</strong><br><br>「Resonant Absorbing Sparkle Unit」の頭文字をつなげた名前で、宮沢賢治の「羅須地人協会」に由来しています。日々の中にある小さなきらめきを受け取り、響き合わせ、新しい価値へと育てていくことをミッションとしています。"
+    "description": "<strong>RASUは、鐘ヶ崎ルカの個人クリエイティブユニットです。</strong><br><br>RASUは、「Resonant Absorbing Sparkle Unit」の頭文字から生まれた名前です。<br>同時に、故郷・岩手にゆかりの深い宮沢賢治が<br>設立した「羅須地人協会」への共感とリスペクトも込められています。<br><br>農業と芸術を暮らしの中で結び、一人ひとりが表現することを<br>大切にした宮沢賢治の思想。<br><br>その精神を受け継ぎながら、RASUは、日々の中にある小さなきらめきを受け取り、互いに響き合わせ、新しい価値へと育てていくことをミッションとしています。"
   },
   "contactSection": {
     "eyebrow": "CREATOR",
@@ -105,13 +108,20 @@
         "label": "note",
         "description": "制作の背景や少し長めの読みもの",
         "type": "secondary"
+      },
+      {
+        "text": "<svg role=\"img\" viewBox=\"0 0 24 24\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.8 12l-6.2 3.6Z\"/></svg>",
+        "url": "https://www.youtube.com/@luca_kanegasaki",
+        "label": "YouTube",
+        "description": "動画コンテンツやこれまでの活動",
+        "type": "youtube"
       }
     ]
   },
   "linksSection": {
     "eyebrow": "FOLLOW & READ",
     "headline": "活動をもっと見る",
-    "description": "最新のお知らせや制作の背景は、Xとnoteで発信しています。"
+    "description": "最新のお知らせや制作の背景、動画コンテンツをX・note・YouTubeで発信しています。"
   },
   "footer": {
     "copyright": "© Luca Kanegasaki & RASU. All nights and sparkles resonant here."

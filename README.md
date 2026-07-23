@@ -59,6 +59,8 @@ py -m http.server 4173
   "type": "video",
   "videoSrc": "/assets/main_visual_landscape_001_pingpong.mp4",
   "imageSrc": "/assets/main_visual_landscape_004.png",
+  "mobileImageSrc": "",
+  "mobileObjectPosition": "48% center",
   "poster": "/assets/main_visual_landscape_004.png",
   "alt": "RASU 公式メインビジュアル"
 }
@@ -66,6 +68,8 @@ py -m http.server 4173
 
 - 動画を表示する場合は `type` を `"video"` にします。
 - 静止画を表示する場合は `type` を `"image"` にします。
+- スマホ専用画像を使う場合は `mobileImageSrc` にパスを指定します。空欄の場合は `imageSrc` を使用します。
+- 横長画像のスマホ表示位置は `mobileObjectPosition` で調整できます。
 - `videoSrc`、`imageSrc`、`poster` には `public` からのパスを指定します。
 
 各ツールカードの名前、紹介文、サムネイル表示、リンク先は `data.json` で編集できます。

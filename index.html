@@ -57,7 +57,8 @@
         "description": "システムエンジニア、個人クリエイティブユニット「RASU」主催",
         "sameAs": [
           "https://x.com/luca_kanegasaki",
-          "https://note.com/luca_bb"
+          "https://note.com/luca_bb",
+          "https://www.youtube.com/@luca_kanegasaki"
         ]
       },
       {
@@ -76,6 +77,16 @@
 <body>
   <!-- 最前面: マウス追従グロウライト (アンビエント演出) -->
   <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+  <div class="ambient-particles" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
   <!-- 固定ヘッダー -->
   <header class="site-header">
@@ -83,7 +94,8 @@
       <span class="logo-mark" id="logo-mark">✦</span>
       <span id="logo-text">RASU</span>
     </a>
-    <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開閉する">
+    <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開く" aria-expanded="false"
+      aria-controls="nav-links">
       <span></span>
       <span></span>
       <span></span>
@@ -102,20 +114,39 @@
     <!-- 1. Hero Section: RASUが何者かを最初の画面で伝える -->
     <section id="top" class="hero-section section-shell">
       <div class="main-visual-wrap">
-        <video class="main-visual-media main-visual-video" id="main-visual-video" autoplay muted loop playsinline preload="metadata"
-          poster="/assets/main_visual_landscape_004.png" aria-label="RASU 公式メインビジュアル">
-          <source id="main-visual-video-source" type="video/mp4" />
-        </video>
-        <img class="main-visual-media main-visual-image" id="main-visual-image"
-          src="/assets/main_visual_landscape_004.png" alt="RASU 公式メインビジュアル" hidden />
-        <div class="main-visual-overlay"></div>
-        <h1 id="hero-headline" class="hero-brand" aria-label="Resonant Absorbing Sparkle Unit">
-          <span class="brand-word"><span class="brand-initial">R</span><span class="brand-rest">esonant</span></span>
-          <span class="brand-word"><span class="brand-initial">A</span><span class="brand-rest">bsorbing</span></span>
-          <span class="brand-word"><span class="brand-initial">S</span><span class="brand-rest">parkle</span></span>
-          <span class="brand-word"><span class="brand-initial">U</span><span class="brand-rest">nit</span></span>
-        </h1>
-        <div class="hero-details">
+        <div class="hero-media-stage">
+          <video class="main-visual-media main-visual-video" id="main-visual-video" autoplay muted loop playsinline preload="metadata"
+            poster="/assets/main_visual_landscape_004.png" aria-label="RASU 公式メインビジュアル">
+            <source id="main-visual-video-source" type="video/mp4" />
+          </video>
+          <img class="main-visual-media main-visual-image" id="main-visual-image"
+            src="/assets/main_visual_landscape_004.png" alt="RASU 公式メインビジュアル" hidden />
+          <div class="main-visual-overlay"></div>
+          <h1 id="hero-headline" class="hero-brand" aria-label="Resonant Absorbing Sparkle Unit">
+            <span class="brand-word"><span class="brand-initial">R</span><span class="brand-rest">esonant</span></span>
+            <span class="brand-word"><span class="brand-initial">A</span><span class="brand-rest">bsorbing</span></span>
+            <span class="brand-word"><span class="brand-initial">S</span><span class="brand-rest">parkle</span></span>
+            <span class="brand-word"><span class="brand-initial">U</span><span class="brand-rest">nit</span></span>
+            <span class="brand-translation" data-brand-translation>人や物事の輝きを受け取り、響き合わせていく</span>
+          </h1>
+        </div>
+
+        <button class="hero-mobile-toggle" id="hero-mobile-toggle" type="button" aria-expanded="false"
+          aria-controls="hero-details">
+          <span class="hero-mobile-toggle-label">RASUとは？</span>
+          <span class="hero-mobile-toggle-icon" aria-hidden="true"></span>
+        </button>
+
+        <div class="hero-details" id="hero-details">
+          <div class="mobile-brand-expansion" aria-label="Resonant Absorbing Sparkle Unit">
+            <p class="mobile-brand-name">
+              <span class="brand-word"><span class="brand-initial">R</span><span class="brand-rest">esonant</span></span>
+              <span class="brand-word"><span class="brand-initial">A</span><span class="brand-rest">bsorbing</span></span>
+              <span class="brand-word"><span class="brand-initial">S</span><span class="brand-rest">parkle</span></span>
+              <span class="brand-word"><span class="brand-initial">U</span><span class="brand-rest">nit</span></span>
+            </p>
+            <p class="mobile-brand-translation" data-brand-translation>人や物事の輝きを受け取り、響き合わせていく</p>
+          </div>
           <p class="eyebrow" id="hero-eyebrow">CREATIVE UNIT BY LUCA KANEGASAKI</p>
           <p class="hero-definition">鐘ヶ崎ルカの個人クリエイティブユニット</p>
           <p class="hero-subtext" id="hero-desc">Webツールやコンテンツをつくり、日々の小さなひらめきや「好き」を新しい形にしています。</p>
@@ -131,7 +162,7 @@
     <section id="about" class="concept-section section-shell">
       <div class="concept-card">
         <p class="eyebrow" id="about-eyebrow">ABOUT RASU</p>
-        <h2 id="about-headline" class="concept-title"><span>きらめきを、響き合わせる。</span>RASUについて</h2>
+        <!-- <h2 id="about-headline" class="concept-title"><span>きらめきを、響き合わせる。</span>RASUについて</h2> -->
         <p id="about-desc" class="concept-text"></p>
       </div>
     </section>

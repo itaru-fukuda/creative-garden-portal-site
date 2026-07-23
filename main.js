@@ -24,10 +24,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hHeadline) {
       const hasExpandedBrand = hHeadline.querySelector('.brand-word');
       if (hasExpandedBrand) {
-        hHeadline.setAttribute('aria-label', siteContent.hero.fullName || siteContent.hero.headline);
+        const brandLabel = [siteContent.hero.fullName || siteContent.hero.headline, siteContent.hero.translation]
+          .filter(Boolean)
+          .join('。');
+        hHeadline.setAttribute('aria-label', brandLabel);
       } else {
         hHeadline.innerHTML = siteContent.hero.headline;
       }
+    }
+    document.querySelectorAll('[data-brand-translation]').forEach(translation => {
+      if (siteContent.hero.translation) translation.textContent = siteContent.hero.translation;
+    });
+    const mobileBrandExpansion = document.querySelector('.mobile-brand-expansion');
+    if (mobileBrandExpansion) {
+      mobileBrandExpansion.setAttribute('aria-label', siteContent.hero.fullName || siteContent.hero.headline);
     }
 
     // content.json の設定に応じて動画または静止画を表示する
@@ -35,7 +45,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroVideo = document.getElementById('main-visual-video');
     const heroVideoSource = document.getElementById('main-visual-video-source');
     const heroImage = document.getElementById('main-visual-image');
+    const heroWrap = document.querySelector('.main-visual-wrap');
+    const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
     const showImage = media.type === 'image';
+
+    if (heroWrap) {
+      heroWrap.style.setProperty('--hero-mobile-object-position', media.mobileObjectPosition || '50% center');
+    }
+
+    const updateHeroImageSource = () => {
+      if (!heroImage || !showImage) return;
+      const mobileImageSrc = typeof media.mobileImageSrc === 'string' ? media.mobileImageSrc.trim() : '';
+      const nextImageSrc = mobileMediaQuery.matches && mobileImageSrc ? mobileImageSrc : media.imageSrc;
+      if (nextImageSrc && heroImage.getAttribute('src') !== nextImageSrc) {
+        heroImage.src = nextImageSrc;
+      }
+    };
 
     if (heroVideo && heroVideoSource && heroImage) {
       if (media.poster) heroVideo.poster = media.poster;
@@ -48,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         heroVideo.pause();
         heroVideo.hidden = true;
         heroImage.hidden = false;
-        if (media.imageSrc) heroImage.src = media.imageSrc;
+        updateHeroImageSource();
       } else {
         heroImage.hidden = true;
         heroVideo.hidden = false;
@@ -63,6 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    mobileMediaQuery.addEventListener('change', updateHeroImageSource);
+
     const hDesc = document.getElementById('hero-desc');
     if (hDesc) hDesc.innerHTML = siteContent.hero.description;
     const primaryButton = document.getElementById('cta-primary');
@@ -74,6 +101,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (secondaryButton && siteContent.hero.secondaryButton) {
       secondaryButton.textContent = siteContent.hero.secondaryButton.text;
       secondaryButton.href = siteContent.hero.secondaryButton.url;
+    }
+
+    const mobileToggle = document.getElementById('hero-mobile-toggle');
+    const mobileToggleLabel = mobileToggle?.querySelector('.hero-mobile-toggle-label');
+    if (mobileToggle && heroWrap) {
+      const setMobileExpanded = expanded => {
+        heroWrap.classList.toggle('is-mobile-expanded', expanded);
+        mobileToggle.setAttribute('aria-expanded', String(expanded));
+        if (mobileToggleLabel) mobileToggleLabel.textContent = expanded ? '説明を閉じる' : 'RASUとは？';
+      };
+
+      mobileToggle.addEventListener('click', () => {
+        setMobileExpanded(!heroWrap.classList.contains('is-mobile-expanded'));
+      });
+
+      mobileMediaQuery.addEventListener('change', event => {
+        if (!event.matches) setMobileExpanded(false);
+      });
     }
   }
 
@@ -196,9 +241,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const displayTitle = tool.title || tool.thumbLabel || 'No Title';
 
       card.innerHTML = `
-        <div class="card-image-wrap">
+        <a href="${tool.url || '#'}" target="_blank" rel="noopener noreferrer" class="card-image-wrap card-image-link"
+          aria-label="${displayTitle}のサイトを開く">
           <img src="${visualSrc}" alt="${displayTitle}" class="card-img" loading="lazy" />
-        </div>
+        </a>
         <div class="card-body">
           <span class="card-tag">${tool.tag || 'PRODUCT'}</span>
           <h3 class="card-title">${displayTitle}</h3>
@@ -220,14 +266,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.getElementById('nav-links');
   if (menuToggle && navLinks) {
     menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('is-active');
-      navLinks.classList.toggle('is-active');
+      const isOpen = menuToggle.classList.toggle('is-active');
+      navLinks.classList.toggle('is-active', isOpen);
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
     });
 
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         menuToggle.classList.remove('is-active');
         navLinks.classList.remove('is-active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'メニューを開く');
       });
     });
   }
