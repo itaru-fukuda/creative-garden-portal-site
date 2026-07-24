@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">RASU</title>
+  <defs>
+    <linearGradient id="background" x1="72" y1="54" x2="444" y2="468" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#171032"/>
+      <stop offset="1" stop-color="#080713"/>
+    </linearGradient>
+    <linearGradient id="letter" x1="142" y1="126" x2="350" y2="390" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff75ae"/>
+      <stop offset="0.55" stop-color="#ff3388"/>
+      <stop offset="1" stop-color="#b85cff"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="92" y1="76" x2="428" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff3388"/>
+      <stop offset="0.58" stop-color="#b85cff"/>
+      <stop offset="1" stop-color="#50e3ff"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="url(#background)"/>
+  <circle cx="256" cy="256" r="184" fill="none" stroke="url(#ring)" stroke-width="16"/>
+  <circle cx="256" cy="256" r="158" fill="#120d28" stroke="#ffffff" stroke-opacity="0.1" stroke-width="2"/>
+  <text x="246" y="368" fill="url(#letter)" font-family="Arial Black, Arial, sans-serif"
+    font-size="322" font-weight="900" text-anchor="middle" letter-spacing="-20">R</text>
+  <path d="M390 76c7 35 23 51 58 58-35 7-51 23-58 58-7-35-23-51-58-58 35-7 51-23 58-58Z"
+    fill="#50e3ff" filter="url(#glow)"/>
+  <path d="M111 344c4 21 14 31 35 35-21 4-31 14-35 35-4-21-14-31-35-35 21-4 31-14 35-35Z"
+    fill="#ff75ae"/>
+  <circle cx="402" cy="350" r="9" fill="#ff75ae"/>
+</svg>
