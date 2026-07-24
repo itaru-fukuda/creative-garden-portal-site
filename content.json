@@ -21,7 +21,7 @@
       "videoSrc": "/assets/main_visual_landscape_001_pingpong.mp4",
       "imageSrc": "/assets/main_visual_landscape_004.png",
       "mobileImageSrc": "",
-      "mobileObjectPosition": "48% center",
+      "mobileObjectPosition": "31% center",
       "poster": "/assets/main_visual_landscape_004.png",
       "alt": "RASU 公式メインビジュアル"
     },
@@ -50,34 +50,35 @@
   "aboutSection": {
     "eyebrow": "ABOUT RASU",
     "headline": "<span>きらめきを、響き合わせる。</span>RASUについて",
-    "description": "<strong>RASUは、鐘ヶ崎ルカの個人クリエイティブユニットです。</strong><br><br>RASUは、「Resonant Absorbing Sparkle Unit」の頭文字から生まれた名前です。<br>同時に、故郷・岩手にゆかりの深い宮沢賢治が<br>設立した「羅須地人協会」への共感とリスペクトも込められています。<br><br>農業と芸術を暮らしの中で結び、一人ひとりが表現することを<br>大切にした宮沢賢治の思想。<br><br>その精神を受け継ぎながら、RASUは、日々の中にある小さなきらめきを受け取り、互いに響き合わせ、新しい価値へと育てていくことをミッションとしています。"
+    "description": "<strong>RASUは、鐘ヶ崎ルカの個人クリエイティブユニットです。</strong><br><br>RASUは、「Resonant Absorbing Sparkle Unit」の頭文字が語源です。<br>同時に、故郷・岩手にゆかりの深い<br>宮沢賢治が設立した「羅須地人協会」への共感とリスペクトも込められています。<br><br>農業と芸術を暮らしの中で結び、<br>一人ひとりが表現することを大切にした宮沢賢治の思想。<br><br>その精神を受け継ぎながら、RASUは日々の中にある小さなきらめきをユーザーと響き合わせ、新しい価値へと育てていくことをミッションとしています。"
   },
   "contactSection": {
     "eyebrow": "CREATOR",
     "headline": "つくっている人",
     "avatar": "/assets/hero_portrait_luca_002.png",
     "name": "鐘ヶ崎ルカ (Luca Kanegasaki)",
-    "description": "興味があるものに一直線！<br>Web制作やAIを活用したものづくりを趣味で行っています。<br>本業は大手サービス会社のシステム職です。<br>平成のインターネット老人会が好き。Vtuber活動は休止中。",
-    "favorites": [
+    "description": "興味があるものに一直線！<br>AIを活用したものづくりを趣味で行っています。<br>本業は大手サービス会社のシステム職です。<br>平成のインターネット老人。2010年代ぐらいのアニメの話が止まらない。",
+    "careerTitle": "経歴",
+    "career": [
       {
-        "icon": "🌙",
-        "label": "夜更かし",
-        "desc": "静かな深夜が一番クリエイティブになれる時間"
+        "period": "現在",
+        "title": "大手サービス会社・システム管理職",
+        "description": "本業として、サービスを支えるシステム関連の仕事に携わっています。"
       },
       {
-        "icon": "🐾",
-        "label": "猫・気まぐれ",
-        "desc": "猫のように自由奔放で、自分の直感に従って行動します"
+        "period": "現在",
+        "title": "RASU / 個人クリエイティブ活動",
+        "description": "SE経験とAIを活用し、興味のあるものを形にする個人制作を続けています。"
       },
       {
-        "icon": "🎵",
-        "label": "音楽・ラジオ",
-        "desc": "お気に入りの大きなヘッドホンで聴くのが好き"
+        "period": "これまで",
+        "title": "Vtuber活動",
+        "description": "鐘ヶ崎ルカとして活動。現在はVtuber活動を休止しています。"
       },
       {
-        "icon": "✨",
-        "label": "ネオン・深夜",
-        "desc": "暗闇に光るネオンの灯りが、私のアイデンティティ"
+        "period": "これまで",
+        "title": "大手システム開発会社・SE職",
+        "description": "システムエンジニアとして、社外・社内共に様々なプロジェクトに携わってきました。"
       }
     ],
     "details": [

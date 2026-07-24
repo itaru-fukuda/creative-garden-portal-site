@@ -35,11 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-brand-translation]').forEach(translation => {
       if (siteContent.hero.translation) translation.textContent = siteContent.hero.translation;
     });
-    const mobileBrandExpansion = document.querySelector('.mobile-brand-expansion');
-    if (mobileBrandExpansion) {
-      mobileBrandExpansion.setAttribute('aria-label', siteContent.hero.fullName || siteContent.hero.headline);
-    }
-
     // content.json の設定に応じて動画または静止画を表示する
     const media = siteContent.hero.media || {};
     const heroVideo = document.getElementById('main-visual-video');
@@ -103,24 +98,94 @@ document.addEventListener('DOMContentLoaded', () => {
       secondaryButton.href = siteContent.hero.secondaryButton.url;
     }
 
-    const mobileToggle = document.getElementById('hero-mobile-toggle');
-    const mobileToggleLabel = mobileToggle?.querySelector('.hero-mobile-toggle-label');
-    if (mobileToggle && heroWrap) {
-      const setMobileExpanded = expanded => {
-        heroWrap.classList.toggle('is-mobile-expanded', expanded);
-        mobileToggle.setAttribute('aria-expanded', String(expanded));
-        if (mobileToggleLabel) mobileToggleLabel.textContent = expanded ? '説明を閉じる' : 'RASUとは？';
-      };
-
-      mobileToggle.addEventListener('click', () => {
-        setMobileExpanded(!heroWrap.classList.contains('is-mobile-expanded'));
-      });
-
-      mobileMediaQuery.addEventListener('change', event => {
-        if (!event.matches) setMobileExpanded(false);
-      });
-    }
   }
+
+  // Heroを通常のスクロール量に合わせて段階的に展開する
+  const initHeroScrollStory = () => {
+    const heroSection = document.querySelector('.hero-section');
+    const heroWrap = document.querySelector('.main-visual-wrap');
+    const scrollLabel = heroWrap?.querySelector('.hero-scroll-label');
+    if (!heroSection || !heroWrap) return;
+
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let animationFrameId = 0;
+
+    const updateHeroState = () => {
+      animationFrameId = 0;
+
+      if (reducedMotionQuery.matches) {
+        heroWrap.style.setProperty('--hero-progress', '1');
+        heroWrap.classList.remove(
+          'is-closing',
+          'is-about-revealing',
+          'is-about-letter-1',
+          'is-about-letter-2',
+          'is-about-letter-3',
+          'is-about-letter-4',
+          'is-about-letter-5',
+          'is-about-complete',
+          'is-about-cue-visible',
+          'is-about-cue-active'
+        );
+        heroWrap.classList.add(
+          'is-reduced-motion',
+          'is-name-expanded',
+          'is-word-1-expanded',
+          'is-word-2-expanded',
+          'is-word-3-expanded',
+          'is-word-4-expanded',
+          'is-details-visible',
+          'is-cta-visible'
+        );
+        return;
+      }
+
+      heroWrap.classList.remove('is-reduced-motion');
+      const scrollRange = Math.max(heroSection.offsetHeight - window.innerHeight, 1);
+      const progress = Math.min(Math.max(-heroSection.getBoundingClientRect().top / scrollRange, 0), 1);
+      const storyProgress = Math.min(progress / 0.8, 1);
+
+      heroWrap.style.setProperty('--hero-progress', progress.toFixed(4));
+      const isClosing = storyProgress >= 0.58;
+      heroWrap.classList.toggle('is-name-expanded', storyProgress >= 0.06 && storyProgress < 0.94);
+      heroWrap.classList.toggle('is-word-1-expanded', storyProgress >= 0.08 && storyProgress < 0.9);
+      heroWrap.classList.toggle('is-word-2-expanded', storyProgress >= 0.14 && storyProgress < 0.84);
+      heroWrap.classList.toggle('is-word-3-expanded', storyProgress >= 0.2 && storyProgress < 0.78);
+      heroWrap.classList.toggle('is-word-4-expanded', storyProgress >= 0.26 && storyProgress < 0.72);
+      heroWrap.classList.toggle('is-details-visible', storyProgress >= 0.34 && storyProgress < 0.66);
+      heroWrap.classList.toggle('is-cta-visible', storyProgress >= 0.42 && storyProgress < 0.58);
+      heroWrap.classList.toggle('is-closing', isClosing);
+      heroWrap.classList.toggle('is-about-revealing', progress >= 0.78);
+      heroWrap.classList.toggle('is-about-letter-1', progress >= 0.78);
+      heroWrap.classList.toggle('is-about-letter-2', progress >= 0.81);
+      heroWrap.classList.toggle('is-about-letter-3', progress >= 0.84);
+      heroWrap.classList.toggle('is-about-letter-4', progress >= 0.87);
+      heroWrap.classList.toggle('is-about-letter-5', progress >= 0.9);
+      heroWrap.classList.toggle('is-about-complete', progress >= 0.9);
+      heroWrap.classList.toggle('is-about-cue-visible', progress >= 0.93);
+      heroWrap.classList.toggle('is-about-cue-active', progress >= 0.96);
+      if (scrollLabel) {
+        scrollLabel.textContent = progress >= 0.9
+          ? 'About RASU'
+          : progress >= 0.78
+            ? 'ENTER ABOUT'
+            : isClosing
+              ? 'CONTINUE'
+              : 'SCROLL TO DISCOVER';
+      }
+    };
+
+    const requestHeroUpdate = () => {
+      if (animationFrameId) return;
+      animationFrameId = window.requestAnimationFrame(updateHeroState);
+    };
+
+    window.addEventListener('scroll', requestHeroUpdate, { passive: true });
+    window.addEventListener('resize', requestHeroUpdate);
+    reducedMotionQuery.addEventListener('change', requestHeroUpdate);
+    updateHeroState();
+  };
+  initHeroScrollStory();
 
   // RASU紹介セクション
   if (siteContent.aboutSection) {
@@ -173,21 +238,24 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // お気に入り描画
-    const favoritesGrid = document.getElementById('contact-favorites-grid');
-    if (favoritesGrid && siteContent.contactSection.favorites) {
-      favoritesGrid.innerHTML = '';
-      siteContent.contactSection.favorites.forEach(fav => {
-        const card = document.createElement('div');
-        card.className = 'editorial-fav-card';
-        card.innerHTML = `
-          <div class="fav-header">
-            <span class="fav-icon">${fav.icon}</span>
-            <span class="fav-name">${fav.label}</span>
-          </div>
-          <p class="fav-desc">${fav.desc}</p>
+    // 経歴描画：content.json の career 配列から生成
+    const careerTitle = document.getElementById('contact-career-title');
+    if (careerTitle && siteContent.contactSection.careerTitle) {
+      careerTitle.textContent = siteContent.contactSection.careerTitle;
+    }
+
+    const careerList = document.getElementById('contact-career-list');
+    if (careerList && Array.isArray(siteContent.contactSection.career)) {
+      careerList.innerHTML = '';
+      siteContent.contactSection.career.forEach(career => {
+        const item = document.createElement('article');
+        item.className = 'career-item';
+        item.innerHTML = `
+          ${career.period ? `<p class="career-period">${career.period}</p>` : ''}
+          <h4 class="career-title">${career.title}</h4>
+          ${career.description ? `<p class="career-description">${career.description}</p>` : ''}
         `;
-        favoritesGrid.appendChild(card);
+        careerList.appendChild(item);
       });
     }
 
@@ -318,7 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const initTiltEffect = () => {
     if (window.matchMedia('(hover: none)').matches) return;
 
-    const tiltElements = document.querySelectorAll('.main-visual-wrap, .service-card, .concept-card, .profile-avatar-container, .social-link-card');
+    const tiltElements = document.querySelectorAll('.service-card, .concept-card, .profile-avatar-container, .social-link-card');
     tiltElements.forEach(el => {
       el.addEventListener('mousemove', (e) => {
         const rect = el.getBoundingClientRect();
@@ -379,7 +447,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 最初の表示確認時点、または動的挿入完了後
     const getRevealElements = () => {
       const els = [
-        document.querySelector('.main-visual-wrap'),
         document.querySelector('.concept-card'),
         document.querySelector('#projects .section-header-editorial'),
         document.querySelector('.profile-layout'),
@@ -387,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ];
       
       // 動的カードおよびリスト項目を追加
-      document.querySelectorAll('.service-card, .editorial-list-item, .editorial-fav-card, .social-link-card').forEach(el => {
+      document.querySelectorAll('.service-card, .editorial-list-item, .career-item, .social-link-card').forEach(el => {
         els.push(el);
       });
 
